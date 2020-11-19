@@ -2,6 +2,15 @@
 
 @section('title', 'Cliente | '.$cliente->nombre)
 
+@section('css')
+<style>
+    #direcciones #iframeDireccones{
+        width: 100%;
+        min-height: 600px;
+    }
+</style>
+@endsection
+
 @section('breadcrumb')
 <h3>{{ $cliente->nombre}}</h3>
 <ol class="breadcrumb" id="breadcrumb">
@@ -12,7 +21,7 @@
 @endsection
 
 @section('content')
-<div class="row">
+<div class="row px-3">
     <ul class="col-12 nav nav-tabs nav-fill" role="tab-list" id="tabs">
         <li class="nav-item active">
             <a class="nav-link active" id="resumen-tab" data-toggle="tab" href="#resumen" role="tab" aria-selected="true">Resumen</a>
@@ -47,12 +56,22 @@
     </ul>
     <div class="col-12 tab-content border-right border-left border-bottom pt-4">
         <div class="tab-pane fade show active" id="resumen" role="tabpanel" aria-labelledby="tab resumen">
-            Resumen
+            <livewire:cliente.resumen :cliente="$cliente"/>
         </div>
         
         <div class="tab-pane fade" id="direcciones" role="tabpanel" aria-labelledby="tab direcciones">
-            
+            <livewire:cliente.direcciones :cliente="$cliente"/>
         </div>
+        
+        <div class="tab-pane fade" id="divisiones" role="tabpanel" aria-labelledby="tab divisiones">Divisiones</div>
+        <div class="tab-pane fade" id="divisiones" role="tabpanel" aria-labelledby="tab divisiones">Divisiones</div>
+        <div class="tab-pane fade" id="mesa" role="tabpanel" aria-labelledby="tab mesa">Mesa</div>
+        <div class="tab-pane fade" id="documentos" role="tabpanel" aria-labelledby="tab documentos">Documentos</div>
+        <div class="tab-pane fade" id="pedidos" role="tabpanel" aria-labelledby="tab pedidos">Pedidos</div>
+        <div class="tab-pane fade" id="pedidos-sap" role="tabpanel" aria-labelledby="tab pedidos-sap">Pedidos Sap</div>
+        <div class="tab-pane fade" id="cxc" role="tabpanel" aria-labelledby="tab cxc">CxC</div>
+        <div class="tab-pane fade" id="ventas" role="tabpanel" aria-labelledby="tab ventas">Ventas</div>
+        <div class="tab-pane fade" id="nc" role="tabpanel" aria-labelledby="tab nc">Nc</div>
     </div>
 </div>
 @endsection
@@ -89,5 +108,15 @@
     if(window.location.hash != ''){
         tabs.querySelector(window.location.hash+ '-tab').click();
     }
+</script>
+<script>
+    window.addEventListener('hashchange', e => {
+        let hash = e.newURL.substring(e.newURL.lastIndexOf('#') + 1, e.newURL.length);
+        
+        let tab = document.querySelector('#' + hash + '-tab');
+        if(!!tab){
+            tab.click();
+        }
+    });
 </script>
 @endsection
