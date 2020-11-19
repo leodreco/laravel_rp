@@ -8,7 +8,7 @@
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Operaciones</a>
 
             <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li><a href="buscar-cliente.html">Buscar Cliente</a></li>
+                <li><a href="/operaciones/cliente">Buscar Cliente</a></li>
                 <li><a href="#">Nombre de Cliente</a></li>
                 <li><a href="#">Autorizar Fuera de Ruta</a></li>
             </ul>

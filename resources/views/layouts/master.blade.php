@@ -10,26 +10,18 @@
 </head>
 <body>
         <div class="wrapper">
-            <!-- Sidebar Holder -->
             @include('layouts.sidebar')
-
-            <!-- Page Content Holder -->
             <div id="content">
-
                 @include('layouts.navbar')
-                
-                <nav aria-label="breadcrumb">
-                    @yield('breadcrumb')
-                </nav>
-                
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="card cd-bg col-12">
-                            <div class="card-body">
-                                @yield('content')
-                            </div>
+                        <div class="col-12">
+                            <nav aria-label="breadcrumb">
+                                @yield('breadcrumb')
+                            </nav>
                         </div>
                     </div>
+                    @yield('content')
                 </div>
             </div>
         </div>

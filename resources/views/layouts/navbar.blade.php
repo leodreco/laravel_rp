@@ -1,9 +1,10 @@
-<nav class="navbar navbar-expand-lg nv-bg">
+<nav class="navbar navbar-expand-lg nv-bg mb-3">
     <div class="container-fluid">
 
         <button type="button" id="sidebarCollapse" class="navbar-btn">
             <i class="material-icons">menu</i>
         </button>
+        
         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -26,5 +27,6 @@
                 </li>
             </ul>
         </div>
+        
     </div>
 </nav>
