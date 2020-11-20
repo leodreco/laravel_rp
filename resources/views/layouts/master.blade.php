@@ -13,7 +13,7 @@
             @include('layouts.sidebar')
             <div id="content">
                 @include('layouts.navbar')
-                <div class="container-fluid">
+                <div class="container-fluid pb-4">
                     <div class="row">
                         <div class="col-12">
                             <nav aria-label="breadcrumb">
@@ -25,10 +25,6 @@
                 </div>
             </div>
         </div>
-        
-        @yield('modals')
-        
-        @yield('templates')
         
         @include('layouts.scripts')
         @yield('js')
