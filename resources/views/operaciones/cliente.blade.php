@@ -43,6 +43,9 @@
     #filtros .input-group-text{
         min-width: 105px;
     }
+    #filtros .input-group-text, #filtros .form-control{
+        font-size: 14px;
+    }
     
     .table a.btn{
         height: 30px;
@@ -53,18 +56,28 @@
         font-size: 20px;
     }
     .dataTables_wrapper .table thead tr th:nth-child(5), .dataTables_wrapper .table thead tr th:nth-child(6), .dataTables_wrapper .table thead tr th:nth-child(7), .dataTables_wrapper .table thead tr th:nth-child(8),
-    .dataTables_wrapper .table thead tr th:nth-child(8){
+    .dataTables_wrapper .table thead tr th:nth-child(8), .dataTables_wrapper .table thead tr th:nth-child(1){
         text-align: center;
     }
     .dataTables_wrapper .table tbody tr td:nth-child(5), .dataTables_wrapper .table tbody tr td:nth-child(6), .dataTables_wrapper .table tbody tr td:nth-child(7), .dataTables_wrapper .table tbody tr td:nth-child(8),
-    .dataTables_wrapper .table tbody tr td:nth-child(9){
+    .dataTables_wrapper .table tbody tr td:nth-child(9), .dataTables_wrapper .table tbody tr td:nth-child(1){
         text-align: center;
+    }
+    /*padding filas con botones*/
+    .dataTables_wrapper .table tbody tr td:nth-child(7), .dataTables_wrapper .table tbody tr td:nth-child(9){
+        padding-top: 5px;
+        padding-bottom: 0;
     }
     .dataTables_wrapper .table thead th {
         font-size: 15px;
     }
     .dataTables_wrapper .table tbody td {
         font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .table-hover tbody tr:hover{
+        background-color: rgb(0 0 0 / 0.25);
     }
 </style>
 @endsection
@@ -81,11 +94,11 @@
 <div class="row mb-4" id="filtros">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">Filtros<button class="btn btn-primary p-1" data-toggle="collapse" data-target="#filtros-collapse"><i class="material-icons">expand_more</i></button></div>
+            <div class="card-header p-2" data-toggle="collapse" data-target="#filtros-collapse">Filtros<button class="btn btn-primary p-1"><i class="material-icons">expand_more</i></button></div>
             <div class="card-body py-2 collapse" id="filtros-collapse">
                 <form id="form-filtros">
                     <div class="row">
-                        <div class="form-group col-12 col-lg-6 col-xl-4">
+                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-1 order-xl-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -96,7 +109,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group col-12 col-lg-6 col-xl-4">
+                        <div class="form-group col-12 col-sm-12 px-xl-0 col-xl-6 order-sm-3 order-xl-2">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -107,7 +120,35 @@
                             </div>
                         </div>
                         
-                        <div class="form-group col-12 col-lg-6 col-xl-2">
+                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-2 order-xl-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        Negocio
+                                    </div>
+                                </div>
+                                <select class="form-control" name="negocio">
+                                    <option value="T">Todo</option>
+                                    <option value="B">Bodega</option>
+                                    <option value="R">Restaurante</option>
+                                    <option value="L">Libreria</option>
+                                </select>
+                            </div>
+                        </div>
+                        {{--
+                        
+                        <!--<div class="form-group col-12 col-lg-6 col-xl-4">-->
+                        <!--    <label>Empleados <span class="min">0</span>-<span class="max">30</span></label>-->
+                        <!--    <div class="form-control border-0">-->
+                        <!--        <div id="slider-range"></div>-->
+                        <!--        <input type="hidden" name="min_empleado">-->
+                        <!--        <input type="hidden" name="max_empleado">-->
+                        <!--    </div>-->
+                        <!--</div>-->
+                        --}}
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-1 order-xl-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <select onchange="changeDniRuc(event);" class="input-group-text" name="tipo_documento">
@@ -119,7 +160,18 @@
                             </div>
                         </div>
                         
-                        <div class="form-group col-12 col-lg-6 col-xl-2">
+                        <div class="form-group col-12 col-sm-12 px-xl-0 col-xl-6 order-sm-3 order-xl-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        Dirección
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" name="direccion">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-2 order-xl-3">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -133,28 +185,7 @@
                                 </select>
                             </div>
                         </div>
-                        
-                        <div class="form-group col-12 col-lg-6 col-xl-4">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        Dirección
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="direccion">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group col-12 col-lg-6 col-xl-4">
-                            <label>Empleados <span class="min">0</span>-<span class="max">30</span></label>
-                            <div class="form-control border-0">
-                                <div id="slider-range"></div>
-                                <input type="hidden" name="min_empleado">
-                                <input type="hidden" name="max_empleado">
-                            </div>
-                        </div>
                     </div>
-                    
                     <div class="row">
                         <div class="col-12 text-right">
                             <button class="btn btn-primary"><i class="material-icons">search</i></button>
@@ -172,7 +203,7 @@
         <table id="buscar-cliente" class="table table table-striped table-hover dt-responsive nowrap display" border="1"  rules="none" style="border:solid 1px #e3d2d2">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th id="cantidad">#</th>
                     <th data-priority="3">Código</th>
                     <th data-priority="1">Nombre</th>
                     <th>Dirección</th>
@@ -199,6 +230,7 @@
             url: '/operaciones/cliente/data',
             dataFilter: function(data){
                 var json = JSON.parse(data);
+                document.querySelector('#cantidad').textContent = json.recordsTotal;
                 for(let i = 0;i < json.data.length; i++){
                     
                     json.data[i] = [
@@ -209,8 +241,8 @@
                         json.data[i].dni,
                         json.data[i].estado ? 'ACTIVO' : 'INACTIVO',
                         `Bodega
-                        <a class="btn btn-primary p-1 ml-1" href="/operaciones/cliente/${json.data[i].id}/show#negocio">
-                            <i class="material-icons">visibility</i>
+                        <a class="btn btn-warning p-1 ml-1" href="/operaciones/cliente/${json.data[i].id}/show#negocio">
+                            <i class="material-icons">edit</i>
                         </a>`,
                         json.data[i].empleado,
                         `<a class="btn btn-primary p-1" href="/operaciones/cliente/${json.data[i].id}/show">
@@ -223,13 +255,13 @@
         },
         dom: `
         <"row"
-            <"col-12 col-lg-4"
+            <"col-12 col-lg-3"
                 <"input-group">
             >
-            <"col-12 col-lg-8"p>
-            <"col-12 d-sm-none pagination-mobile">
+            <"col-lg-2 col-xl-5 text-center d-none d-lg-block"l>
+            <"col-12 col-lg-7 col-xl-4"p>
         >
-        t
+        rt
         `,
         // i
         language: {
@@ -238,7 +270,7 @@
     }).on('init', () => {
         let wrapper = document.querySelector('#buscar-cliente_wrapper');
         wrapper.querySelector('.input-group').innerHTML = `
-        <input class="form-control" type="text" name="nombre" placeholder="Buscar SN" id="search">
+        <input class="form-control" type="text" name="nombre" placeholder="Buscar cliente" id="search">
         <i class="material-icons delete">delete</i>
         <div class="input-group-append">
             <button type="button" class="btn btn-primary py-0 search"><i class="material-icons">search</i></button>
@@ -249,10 +281,11 @@
         // <li class="paginate_button page-item next"><a href="#" class="page-link">Siguiente</a></li>
         // </ul>`;
         let search = document.querySelector('#search');
-        search.addEventListener('keypress', e => {
-            if(e.charCode == 13){
+        search.addEventListener('input', e => {
+            console.log(e, e.currentTarget.value);
+            // if(e.charCode == 13){
                 table.search(e.currentTarget.value).draw();
-            }
+            // }
         });
         search.closest('div').querySelector('button.search').addEventListener('click', e => {
             if(search.value.length > 0){
@@ -272,22 +305,22 @@
 <!--Slider range-->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-    $('#slider-range').slider({
-        range: true,
-        min: 0,
-        max: 30,
-        values: [ 0, 30 ],
-        slide: (event, ui) => {
-            let group = event.target.closest('.form-group');
-            if(ui.handleIndex == 0){
-                group.querySelector('.min').textContent = ui.value;
-                group.querySelector('input[name=min_empleado]').value = ui.value;
-            }else{
-                group.querySelector('.max').textContent = ui.value;
-                group.querySelector('input[name=max_empleado]').value = ui.value;
-            }
-        }
-    });
+    // $('#slider-range').slider({
+    //     range: true,
+    //     min: 0,
+    //     max: 30,
+    //     values: [ 0, 30 ],
+    //     slide: (event, ui) => {
+    //         let group = event.target.closest('.form-group');
+    //         if(ui.handleIndex == 0){
+    //             group.querySelector('.min').textContent = ui.value;
+    //             group.querySelector('input[name=min_empleado]').value = ui.value;
+    //         }else{
+    //             group.querySelector('.max').textContent = ui.value;
+    //             group.querySelector('input[name=max_empleado]').value = ui.value;
+    //         }
+    //     }
+    // });
 </script>
 
 <!--filtros-->
@@ -307,10 +340,10 @@
             documento: formFiltros.documento.value
         }));
         table.column(5).search(formFiltros.estado.value);
-        table.column(6).search(JSON.stringify({
-            min: formFiltros.min_empleado.value,
-            max: formFiltros.max_empleado.value
-        }));
+        // table.column(6).search(JSON.stringify({
+        //     min: formFiltros.min_empleado.value,
+        //     max: formFiltros.max_empleado.value
+        // }));
         table.draw();
         // console.log([
         //   formFiltros.cod.value,
@@ -331,9 +364,8 @@
         table.column(3).search('');
         table.column(4).search('');
         table.column(5).search('');
-        table.column(6).search('');
+        // table.column(6).search('');
         table.draw();
-        // e.preventDefault();
     });
 </script>
 @endsection

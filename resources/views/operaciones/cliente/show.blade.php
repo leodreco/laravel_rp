@@ -11,7 +11,29 @@
     #modal_mapa iframe{
         width: 100%;
         height: 700px;
-    }   
+    }
+    
+    .table tbody td{
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+    .table tbody td button{
+        height: 30px;
+        width: 30px;
+    }
+    .table tbody td button i{
+        font-size: 20px;
+    }
+    .table tbody tr{
+        font-size: 15px;
+    }
+    #direcciones .table tbody td:nth-child(3){
+        padding-top: 5px;
+        padding-bottom: 0;
+    }
+    .table-hover tbody tr:hover{
+        background-color: rgb(0 0 0 / 0.25);
+    }
 </style>
 @endsection
 
@@ -142,5 +164,19 @@
             tab.click();
         }
     });
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+<script>
+    $('#table-mesa').DataTable({
+        paging: false,
+        ordering: false,
+        dom: 't'
+    });
+    setInterval(() => {
+        $.fn.dataTable.tables( { visible: true, api: true } ).columns.adjust();
+    }, 500)
+    
 </script>
 @endsection

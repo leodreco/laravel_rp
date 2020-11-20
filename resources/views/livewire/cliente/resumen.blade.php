@@ -25,7 +25,8 @@
     }
     
     .text-de{
-        color: rgb(4 38 85);
+        color: rgb(4 38 85);   
+    }
 </style>
 
 <div class="row">
@@ -42,9 +43,9 @@
                                 <div class="col-md-2"><span class="head">Código</span><br><span class="text-de">CD13415H</span></div>
                                 <div class="col-md-2"><span class="head">Nombre</span><br><span class="text-de">Clever</span></div>
                                 <div class="col-md-2"><span class="head">DNI/RUC</span><br><span class="text-de">72690060</span></div>
-                                <div class="col-md-2"><span class="head">Dirección</span><br><span class="text-de">Av. Los olvidados</span></div>
+                                <div class="col-md-4"><span class="head">Dirección</span><br><span class="text-de">Av. Los olvidados</span></div>
                                 <div class="col-md-2"><span class="head">Estado</span><br><span class="text-de">Activo</span></div>
-                                <div class="col-md-2"><span class="head">usuario</span><br><span class="text-de">Manager</span></div>
+                                
                             </div>
 
                         </div>
@@ -75,6 +76,10 @@
                                 <div class="col-md-4"><span class="head">Saldo Deudor</span><br><span class="text-de">.00</span></div>
                                 <div class="col-md-8"><span class="head">linea de Crédito</span><br><span class="text-de">.00000</span></div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4"><span class="head">usuario</span><br><span class="text-de">Manager</span></div>
+                            </div>
+                            
                         </div>
 
                     </div>

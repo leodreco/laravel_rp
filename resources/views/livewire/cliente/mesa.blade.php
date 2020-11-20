@@ -1,17 +1,26 @@
+<style>
+    #table-mesa thead tr th:nth-child(6){
+        min-width: 290px !important;
+    }
+    
+    #table-mesa tbody tr td:nth-child(2), #table-mesa thead tr th:nth-child(2){
+        text-align: center;
+    }
+</style>
 <div class="row">
     <div class="col-12">
-        <table class="table table-hover" style="width:100%" >
+        <table class="table table-hover table-bordered table-striped dt-responsive" id="table-mesa" style="width:100%" >
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Domicilio</th>
+                    <th data-priority="3">#</th>
+                    <th data-toggle="tooltip" data-placement="top" title="Domicilio">Dom.</th>
                     <th>Mesa</th>
                     <th>Zona</th>
                     <th>Ruta</th>
-                    <th>Vendedor</th>
-                    <th>Dia de visita</th>
+                    <th data-priority="1">Vendedor</th>
+                    <th>Día de visita</th>
                     <th>Canal</th>
-                    <th>Activo</th>
+                    <th data-priority="2">Activo</th>
                     <th>Frecuencia</th>
                     <th>Almacen</th>
                 </tr>

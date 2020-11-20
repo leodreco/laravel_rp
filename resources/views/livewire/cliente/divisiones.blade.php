@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-        <table class="table table-hover" style="width:100%" >
+        <table class="table table-hover table-bordered table-striped" style="width:100%" >
             <thead>
                 <tr>
                     <th>#</th>
