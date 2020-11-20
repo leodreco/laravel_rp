@@ -26,6 +26,9 @@
             </div>
         </div>
         
+        @yield('modals')
+        @yield('templates')
+        
         @include('layouts.scripts')
         @yield('js')
     </body>

@@ -1,219 +1,124 @@
-<div class="row mb-4">
-    <div class="col-12 mb-4">
-        <div class="card">
+<style>
+    .nav-tab {
+    color: white !important;
+    background: none !important;
+    text-decoration: none;
+        
+    }
+    .tab-pane{
+        margin-top: 18px;
+    }
+    
+    .head{
+        font-weight: bold;
+    }
+    
+    .cd-bg-detalle{
+        -webkit-box-shadow: 0px 0px 9px -1px rgba(163,161,163,1);
+        -moz-box-shadow: 0px 0px 9px -1px rgba(163,161,163,1);
+        box-shadow: 0px 0px 9px -1px rgba(163,161,163,1);
+    }
+    
+    .icon{
+        width: 30px;
+        color: #007bff;
+    }
+    
+    .text-de{
+        color: rgb(4 38 85);
+</style>
+
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <div class="card cd-bg-detalle">
+                    <div class="card-body">
+                        <h4 class="card-title">Información general</h4>
+                        <hr style="background-color: aqua;">
+                        <div class="container-fluid p-0">
+                            <div class="row">
+                                <div class="col-md-2"><span class="head">Código</span><br><span class="text-de">CD13415H</span></div>
+                                <div class="col-md-2"><span class="head">Nombre</span><br><span class="text-de">Clever</span></div>
+                                <div class="col-md-2"><span class="head">DNI/RUC</span><br><span class="text-de">72690060</span></div>
+                                <div class="col-md-2"><span class="head">Dirección</span><br><span class="text-de">Av. Los olvidados</span></div>
+                                <div class="col-md-2"><span class="head">Estado</span><br><span class="text-de">Activo</span></div>
+                                <div class="col-md-2"><span class="head">usuario</span><br><span class="text-de">Manager</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4 mb-2">
+                <div class="card cd-bg-detalle">
+                    <div class="card-body">
+                        <h4 class="card-title">Otros</h4>
+                        <hr style="background-color: aqua;">
+
+                        <div class="container-fluid p-0">
+                            <div class="row">
+                                <div class="col-md-4"><span class="head">Término de Pago</span><br><span class="text-de">Contado</span></div><br>
+                                <div class="col-md-8 mb-2"><span class="head">Límite de Comprome</span><br><span class="text-de">012-Lista Gral Minorista</span></div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-4"><span class="head">Lista de Precio</span><br><span class="text-de">012-Lista Gral Minorista</span></div>
+                                <div class="col-md-8"><span class="head">Interés por Ret</span><br><span class="text-de">.00000</span></div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-4"><span class="head">Total Descuente</span><br><span class="text-de">.00000</span></div>
+                                <div class="col-md-8"><span class="head">Prioridad</span><br><span>-1</span class="text-de"></div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-4"><span class="head">Saldo Deudor</span><br><span class="text-de">.00</span></div>
+                                <div class="col-md-8"><span class="head">linea de Crédito</span><br><span class="text-de">.00000</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="col-md-4 mt-2">
+        <div class="card cd-bg-detalle">
             <div class="card-body">
-                <h4 class="card-title">Información general</h4>
+                <div class="card-title">
+                    <h4>Contacto</h4>
+                    <hr style="background-color: aqua;">
+                </div>
+                <hr>
                 <div class="container-fluid p-0">
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Código</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->cod }}">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Tipo</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="Cliente">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Empleado</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->empleado }}">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Grupo</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Nombre</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->nombre }}">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Nombre comercial</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->nombre }}">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Tipo de persona</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="TPN - Natural">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">DNI</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->dni }}">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2">Dirección</label>
-                        <div class="col-12 col-sm-7 col-lg-10">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->direccion }}">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-lg-2 mb-sm-3">Ciudad</label>
-                        <div class="col-12 col-sm-7 col-lg-4 mb-sm-3">
-                            <input class="form-control" type="text" readonly value="Lima">
-                        </div>
+                    <table>
+                        <tr>
+                            <td class="icon"><span class="material-icons">smartphone</span></td>
+                            <td>977917819</td>
+                        </tr>
+                        <tr>
+                            <td class="icon"><span class="material-icons">email</span></td>
+                            <td>clever.coer09@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td class="icon"><span class="material-icons">person</span></td>
+                            <td>CleyMi</td>
+                        </tr>
+                        <tr>
+                            <td class="icon"><span class="material-icons">language</span></td>
+                            <td>cleymisoft.com</td>
+                        </tr>
+                        <tr>
+                            <td class="icon"><span class="material-icons">cached</span></td>
+                            <td>02/02/2000</td>
+                        </tr>
                         
-                        <label class="col-12 col-sm-5 col-lg-2">Estado</label>
-                        <div class="col-12 col-sm-7 col-lg-4">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->estado ? 'Acttivo' : 'Inactivo' }}">
-                        </div>
-                    </div>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="col-12 col-lg-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Otros</h4>
-                
-                <div class="container-fluid p-0">
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Término de pago</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->termino_pago }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Interes por ret</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value=".000000">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Lista de precio</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->lista_precio }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Total descuento</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value=".000000">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Línea de credito</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value=".000000">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Límite comprome</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value=".000000">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Prioridad</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->prioridad }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Saldo deudor</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value=".00">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-lg-6">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-text">Contacto</h4>
-                <div class="container-fluid p-0">
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Télefono 1</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->telefono }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Télefono 2</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Celular</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->celular }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Fax</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">E-mail</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->email }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Web</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->web }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Contacto</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->contacto }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Tipo de entrega</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="2">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Creado</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->created_at }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Actualizado</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->updated_at }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12 col-sm-5 col-xl-3">Usuario</label>
-                        <div class="col-12 col-sm-7 col-xl-9">
-                            <input class="form-control" type="text" readonly value="{{ $cliente->updated_for }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>    
 </div>

@@ -39,6 +39,33 @@
     #filtros .form-group{
         margin-bottom: 5px;
     }
+    
+    #filtros .input-group-text{
+        min-width: 105px;
+    }
+    
+    .table a.btn{
+        height: 30px;
+        width: 30px;
+    }
+    
+    .table i.material-icons{
+        font-size: 20px;
+    }
+    .dataTables_wrapper .table thead tr th:nth-child(5), .dataTables_wrapper .table thead tr th:nth-child(6), .dataTables_wrapper .table thead tr th:nth-child(7), .dataTables_wrapper .table thead tr th:nth-child(8),
+    .dataTables_wrapper .table thead tr th:nth-child(8){
+        text-align: center;
+    }
+    .dataTables_wrapper .table tbody tr td:nth-child(5), .dataTables_wrapper .table tbody tr td:nth-child(6), .dataTables_wrapper .table tbody tr td:nth-child(7), .dataTables_wrapper .table tbody tr td:nth-child(8),
+    .dataTables_wrapper .table tbody tr td:nth-child(9){
+        text-align: center;
+    }
+    .dataTables_wrapper .table thead th {
+        font-size: 15px;
+    }
+    .dataTables_wrapper .table tbody td {
+        font-size: 14px;
+    }
 </style>
 @endsection
 
@@ -62,7 +89,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <label>Código</label>
+                                        Código
                                     </div>
                                 </div>
                                 <input type="text" class="form-control" placeholder="CA00000000" name="cod">
@@ -80,18 +107,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group col-12 col-lg-6 col-xl-4">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        Dirección
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="direccion">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group col-12 col-lg-6 col-xl-4">
+                        <div class="form-group col-12 col-lg-6 col-xl-2">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <select onchange="changeDniRuc(event);" class="input-group-text" name="tipo_documento">
@@ -103,7 +119,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group col-12 col-lg-6 col-xl-4">
+                        <div class="form-group col-12 col-lg-6 col-xl-2">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -119,13 +135,23 @@
                         </div>
                         
                         <div class="form-group col-12 col-lg-6 col-xl-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        Dirección
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" name="direccion">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-12 col-lg-6 col-xl-4">
                             <label>Empleados <span class="min">0</span>-<span class="max">30</span></label>
                             <div class="form-control border-0">
                                 <div id="slider-range"></div>
                                 <input type="hidden" name="min_empleado">
                                 <input type="hidden" name="max_empleado">
                             </div>
-                            
                         </div>
                     </div>
                     
@@ -143,18 +169,18 @@
 
 <div class="row" id="busqueda_cliente">
     <div class="col-12">
-        <table id="buscar-cliente" class="table table table-striped table-hover dt-responsive nowrap display">
+        <table id="buscar-cliente" class="table table table-striped table-hover dt-responsive nowrap display" border="1"  rules="none" style="border:solid 1px #e3d2d2">
             <thead>
                 <tr>
                     <th>#</th>
                     <th data-priority="3">Código</th>
                     <th data-priority="1">Nombre</th>
                     <th>Dirección</th>
-                    <th>RUC/DNI</th>
-                    <th>Estado</th>
-                    <th>Tipo Negocio</th>
-                    <th>Empleados</th>
-                    <th data-priority="2">Acciones</th>
+                    <th class="text-center">RUC / DNI</th>
+                    <th class="text-center">Estado</th>
+                    <th class="text-center">Tipo Negocio</th>
+                    <th class="text-center">Empleados</th>
+                    <th class="text-center" data-priority="2">Acciones</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -166,6 +192,7 @@
 @section('js')
 <script>
     var table = $('#buscar-cliente').DataTable({
+        processing: true,
         ordering: false,
         serverSide: true,
         ajax: {
@@ -182,7 +209,7 @@
                         json.data[i].dni,
                         json.data[i].estado ? 'ACTIVO' : 'INACTIVO',
                         `Bodega
-                        <a class="btn btn-primary p-1" href="/operaciones/cliente/${json.data[i].id}/show#negocio">
+                        <a class="btn btn-primary p-1 ml-1" href="/operaciones/cliente/${json.data[i].id}/show#negocio">
                             <i class="material-icons">visibility</i>
                         </a>`,
                         json.data[i].empleado,
@@ -202,8 +229,9 @@
             <"col-12 col-lg-8"p>
             <"col-12 d-sm-none pagination-mobile">
         >
-        ti
+        t
         `,
+        // i
         language: {
             url: 'https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json'
         }
@@ -296,7 +324,7 @@
         // ]);
     });
     formFiltros.querySelector('button[type=reset]').addEventListener('click', e => {
-        e.preventDefault();
+        
         console.log(e);
         table.column(1).search('');
         table.column(2).search('');
@@ -304,6 +332,8 @@
         table.column(4).search('');
         table.column(5).search('');
         table.column(6).search('');
+        table.draw();
+        // e.preventDefault();
     });
 </script>
 @endsection

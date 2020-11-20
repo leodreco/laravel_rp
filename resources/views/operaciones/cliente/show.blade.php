@@ -8,6 +8,10 @@
         width: 100%;
         min-height: 600px;
     }
+    #modal_mapa iframe{
+        width: 100%;
+        height: 700px;
+    }   
 </style>
 @endsection
 
@@ -63,15 +67,35 @@
             <livewire:cliente.direcciones :cliente="$cliente"/>
         </div>
         
-        <div class="tab-pane fade" id="divisiones" role="tabpanel" aria-labelledby="tab divisiones">Divisiones</div>
-        <div class="tab-pane fade" id="divisiones" role="tabpanel" aria-labelledby="tab divisiones">Divisiones</div>
-        <div class="tab-pane fade" id="mesa" role="tabpanel" aria-labelledby="tab mesa">Mesa</div>
-        <div class="tab-pane fade" id="documentos" role="tabpanel" aria-labelledby="tab documentos">Documentos</div>
-        <div class="tab-pane fade" id="pedidos" role="tabpanel" aria-labelledby="tab pedidos">Pedidos</div>
-        <div class="tab-pane fade" id="pedidos-sap" role="tabpanel" aria-labelledby="tab pedidos-sap">Pedidos Sap</div>
-        <div class="tab-pane fade" id="cxc" role="tabpanel" aria-labelledby="tab cxc">CxC</div>
-        <div class="tab-pane fade" id="ventas" role="tabpanel" aria-labelledby="tab ventas">Ventas</div>
-        <div class="tab-pane fade" id="nc" role="tabpanel" aria-labelledby="tab nc">Nc</div>
+        <div class="tab-pane fade" id="divisiones" role="tabpanel" aria-labelledby="tab divisiones">
+            <livewire:cliente.divisiones/>
+        </div>
+        
+        <div class="tab-pane fade" id="mesa" role="tabpanel" aria-labelledby="tab mesa">
+            <livewire:cliente.mesa/>
+        </div>
+        
+        <div class="tab-pane fade" id="documentos" role="tabpanel" aria-labelledby="tab documentos">
+            <livewire:cliente.documentos/>
+        </div>
+        
+        <div class="tab-pane fade" id="pedidos" role="tabpanel" aria-labelledby="tab pedidos">
+            <livewire:cliente.pedidos/>
+        </div>
+        
+        <div class="tab-pane fade" id="pedidos-sap" role="tabpanel" aria-labelledby="tab pedidos-sap">
+            <livewire:cliente.pedidos-sap/>
+        </div>
+        <div class="tab-pane fade" id="cxc" role="tabpanel" aria-labelledby="tab cxc">
+            <livewire:cliente.cxc/>
+        </div>
+        
+        <div class="tab-pane fade" id="ventas" role="tabpanel" aria-labelledby="tab ventas">
+            <livewire:cliente.ventas/>
+        </div>
+        <div class="tab-pane fade" id="nc" role="tabpanel" aria-labelledby="tab nc">
+            <livewire:cliente.nc/>
+        </div>
     </div>
 </div>
 @endsection
