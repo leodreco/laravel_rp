@@ -3,7 +3,6 @@
 @section('title', 'Operaciones - Cliente')
 
 @section('css')
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
     .dataTables_wrapper{
         position: relative;
@@ -79,6 +78,41 @@
     .table-hover tbody tr:hover{
         background-color: rgb(0 0 0 / 0.25);
     }
+    
+    @media(min-width: 1200px){
+        .primera-fila{
+            max-width: 21%;
+        }
+        .segunda-fila{
+            flex: 0 0 54%;
+            max-width: 54%;
+        }
+    }
+    /*Estilos filtros*/
+    #buscar-cliente #cantidad{
+        position: relative;
+    }
+    #buscar-cliente #cantidad .btn.btn-danger{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        z-index: 100;
+        padding: 2px;
+    }
+    #buscar-cliente .btn.btn-danger i{
+        font-size: 15px;
+    }
+    
+    #buscar-cliente .filtros td{
+        padding: 3px;
+    }
+    #buscar-cliente .filtros .form-control{
+        height:auto;
+        font-size: 13px;
+        padding: 4px;
+    }
 </style>
 @endsection
 
@@ -98,7 +132,7 @@
             <div class="card-body py-2 collapse" id="filtros-collapse">
                 <form id="form-filtros">
                     <div class="row">
-                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-1 order-xl-1">
+                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-1 order-xl-1 primera-fila">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -109,7 +143,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group col-12 col-sm-12 px-xl-0 col-xl-6 order-sm-3 order-xl-2">
+                        <div class="form-group col-12 col-sm-12 px-xl-0 col-xl-6 order-sm-3 order-xl-2 segunda-fila">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -148,7 +182,7 @@
                         --}}
                     </div>
                     <div class="row">
-                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-1 order-xl-1">
+                        <div class="form-group col-12 col-sm-6 col-xl-3 order-sm-1 order-xl-1 primera-fila">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <select onchange="changeDniRuc(event);" class="input-group-text" name="tipo_documento">
@@ -160,7 +194,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group col-12 col-sm-12 px-xl-0 col-xl-6 order-sm-3 order-xl-2">
+                        <div class="form-group col-12 col-sm-12 px-xl-0 col-xl-6 order-sm-3 order-xl-2 segunda-fila">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -203,7 +237,7 @@
         <table id="buscar-cliente" class="table table table-striped table-hover dt-responsive nowrap display" border="1"  rules="none" style="border:solid 1px #e3d2d2">
             <thead>
                 <tr>
-                    <th id="cantidad">#</th>
+                    <th id="cantidad"><span>#</span><button class="btn btn-danger"><i class="material-icons">filter_list</i></button></th>
                     <th data-priority="3">Código</th>
                     <th data-priority="1">Nombre</th>
                     <th>Dirección</th>
@@ -220,7 +254,45 @@
 </div>
 @endsection
 
+@section('templates')
+<template id="row_filters">
+    <tr class="filtros">
+        <td>Filtros</td>
+        <td>
+            <input type="text" class="form-control" placeholder="CA00000000" oninput="rowFilter(event);" name="cod">
+        </td>
+        <td>
+            <input type="text" class="form-control" placeholder="Nombre" oninput="rowFilter(event);" name="nombre">
+        </td>
+        <td>
+            <input type="text" class="form-control" placeholder="Dirección" oninput="rowFilter(event);" name="direccion">
+        </td>
+        <td>
+            <input type="text" class="form-control" placeholder="RUC / DNI" oninput="rowFilter(event);" name="documento">
+        </td>
+        <td>
+            <select class="form-control" onchange="rowFilter_select(event);" name="estado">
+                <option value="T">Todo</option>
+                <option value="A">Activo</option>
+                <option value="I">Inactivo</option>
+            </select>
+        </td>
+        <td>
+            <select class="form-control" onchange="rowFilter_select(event);" name="negocio">
+                <option value="T">Todo</option>
+                <option value="B">Bodega</option>
+                <option value="R">Restaurante</option>
+                <option value="L">Libreria</option>
+            </select>
+        </td>
+        <td></td>
+        <td><button class="btn btn-danger" onclick="clearRowFilter(event);">Limpiar</button></td>
+    </tr>
+</template>
+@endsection
+
 @section('js')
+<!--DataTable Init-->
 <script>
     var table = $('#buscar-cliente').DataTable({
         processing: true,
@@ -230,7 +302,7 @@
             url: '/operaciones/cliente/data',
             dataFilter: function(data){
                 var json = JSON.parse(data);
-                document.querySelector('#cantidad').textContent = json.recordsTotal;
+                document.querySelector('#cantidad span').textContent = json.recordsTotal;
                 for(let i = 0;i < json.data.length; i++){
                     
                     json.data[i] = [
@@ -299,11 +371,29 @@
         setInterval(() => {
             $.fn.dataTable.tables( { visible: true, api: true } ).columns.adjust();
         }, 500)
+    }).on('preDraw', e => {
+        if(btnFiltros.classList.contains('active')){
+            table.active = document.activeElement.getAttribute('name');
+            table.filtros = document.querySelector('#buscar-cliente .filtros').cloneNode(true);
+        }
+    }).on('draw', e => {
+        if(btnFiltros.classList.contains('active')){
+            createRowFilter(table.filtros);
+            if(!!table.active){
+                let input = document.querySelector(`#buscar-cliente .filtros [name=${ table.active }]`);
+                if(!!input){
+                    input.focus();
+                    input.selectionStart = input.value.length;
+                    input.selectionEnd = input.value.length;
+                    // input.value = input.value;
+                }
+            }
+        }
     });
 </script>
-
+{{--
 <!--Slider range-->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
 <script>
     // $('#slider-range').slider({
     //     range: true,
@@ -322,7 +412,7 @@
     //     }
     // });
 </script>
-
+--}}
 <!--filtros-->
 <script>
     function changeDniRuc(e){
@@ -367,5 +457,73 @@
         // table.column(6).search('');
         table.draw();
     });
+</script>
+<!--filtros en fila tabla-->
+<script>
+    let btnFiltros = document.querySelector('#cantidad .btn.btn-danger');
+    btnFiltros.addEventListener('click', e => {
+        if(!!table.body()[0].querySelector('.filtros')){
+            e.currentTarget.classList.remove('active');
+            table.filtros.remove();
+            delete table.filtros;
+        }else{
+            e.currentTarget.classList.add('active');
+            createRowFilter();
+        }
+        
+    });
+    function createRowFilter(filtros = undefined){
+        if(filtros != undefined){
+            // console.log(filtros);
+            table.body()[0].prepend(filtros);
+            return;
+        }
+        let row = document.importNode(document.querySelector('#row_filters').content, true);
+        table.body()[0].prepend(row);
+        table.filtros = table.body()[0].querySelector('.filtros');
+    }
+    function rowFilter_select(e){
+        let oldSelected = e.currentTarget.querySelector('option[selected]');
+        if(!!oldSelected){
+            oldSelected.removeAttribute('selected');
+        }
+        e.currentTarget.querySelector(`option[value=${e.currentTarget.value}]`).setAttribute('selected', '');
+        rowFilter(e);
+    }
+    function rowFilter(e){
+        let codigo = table.filtros.querySelector('input[name=cod]').value;
+        let nombre = table.filtros.querySelector('input[name=nombre]').value;
+        let direccion = table.filtros.querySelector('input[name=direccion]').value;
+        let documento = table.filtros.querySelector('input[name=documento]').value;
+        let estado = table.filtros.querySelector('select[name=estado]').value;
+        let negocio = table.filtros.querySelector('select[name=negocio]').value;
+        
+        console.log(codigo, nombre, direccion, documento, estado, negocio);
+        
+        table.column(1).search(codigo);
+        table.column(2).search(nombre);
+        table.column(3).search(direccion);
+        table.column(4).search(JSON.stringify({
+            tipo: 'dni',
+            documento
+        }));
+        table.column(5).search(estado);
+        table.draw();
+    }
+    function clearRowFilter(){
+        table.filtros.querySelector('input[name=cod]').value = '';
+        table.filtros.querySelector('input[name=nombre]').value = '';
+        table.filtros.querySelector('input[name=direccion]').value = '';
+        table.filtros.querySelector('input[name=documento]').value = '';
+        
+        table.filtros.querySelector('select[name=estado]').value = 'T';
+        table.filtros.querySelector('select[name=negocio]').value = 'T';
+        table.column(1).search('');
+        table.column(2).search('');
+        table.column(3).search('');
+        table.column(4).search('');
+        table.column(5).search('');
+        table.draw();
+    }
 </script>
 @endsection

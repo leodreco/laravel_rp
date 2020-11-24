@@ -1,3 +1,5 @@
+<style>
+</style>
 <div class="row">
     <div class="col-12">
         <div class="table-responsive">
@@ -29,7 +31,10 @@
                     <tr>
                         <td>1</td>
                         <td>VEN</td>
-                        <td>56251208</td>
+                        <td class="button-cell" data-toggle="modal" data-target="#modal_detalle_documento">
+                            56251208
+                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
+                        </td>
                         <td>2020-09-30</td>
                         <td>F031-01</td>
                         <td>00251300</td>
@@ -40,12 +45,18 @@
                         <td>637.97</td>
                         <td>637.97</td>
                         <td>102.81</td>
-                        <td>109</td>
+                        <td class="button-cell">
+                            109303
+                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
+                        </td>
                         <td>Credi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>2020-10-05</td>
+                        <td class="button-cell">
+                            7964725
+                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
+                        </td>
+                        <td>002</td>
+                        <td>05AY01</td>
                     </tr>
                 </tbody>
             </table>

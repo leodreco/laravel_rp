@@ -79,6 +79,7 @@ a, a:hover, a:focus {
     padding: 20px;
     background: #16699c;
     color: white !important;
+    font-size: 31px !important;
 }
 
 #sidebar ul.components {

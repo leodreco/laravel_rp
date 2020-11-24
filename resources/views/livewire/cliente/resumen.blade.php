@@ -1,4 +1,7 @@
 <style>
+*{
+    font-size: 15px;
+}
     .nav-tab {
     color: white !important;
     background: none !important;
@@ -27,6 +30,46 @@
     .text-de{
         color: rgb(4 38 85);   
     }
+    @media(min-width: 1140px){
+        /*0 0 16.666667%*/
+        #resumen .codigo{
+            -ms-flex: 0 0 13%;
+            flex: 0 0 13%;
+            min-width: 13%;
+            max-width: 13%;
+        }
+        #resumen .direccion{
+            -ms-flex: 0 0 41.33%;
+            flex: 0 0 41.33%;
+            min-width: 41.33%;
+            max-width: 41.33%;
+        }
+        #resumen .estado{
+            0 0 16.666667%
+            -ms-flex: 0 0 11%;
+            flex: 0 0 11%;
+            min-width: 11%;
+            max-width: 11%;
+        }
+    }
+    #resumen i.href{
+        /*position: absolute;*/
+        /*top: 15px;*/
+        /*right: 30px;*/
+        /*cursor: pointer;*/
+    }
+    #ver{
+        float: right;
+        cursor: pointer;
+        margin-top: 0;
+        transform: translate(0px, -33px);
+        font-weight: bold;
+        color: #007bff;
+    }
+    hr{
+        background-color: #007bff75;
+    }
+    
 </style>
 
 <div class="row">
@@ -36,18 +79,16 @@
             <div class="col-md-12 mt-2">
                 <div class="card cd-bg-detalle">
                     <div class="card-body">
-                        <h4 class="card-title">Información general</h4>
-                        <hr style="background-color: aqua;">
+                        <h4 class="card-title">Información general</h4> <span class="material-icons" id="ver" data-toggle="modal" data-target="#info-general-nombre" title="Ver detalle"> visibility </span>
+                        <hr>
                         <div class="container-fluid p-0">
                             <div class="row">
-                                <div class="col-md-2"><span class="head">Código</span><br><span class="text-de">CD13415H</span></div>
-                                <div class="col-md-2"><span class="head">Nombre</span><br><span class="text-de">Clever</span></div>
-                                <div class="col-md-2"><span class="head">DNI/RUC</span><br><span class="text-de">72690060</span></div>
-                                <div class="col-md-4"><span class="head">Dirección</span><br><span class="text-de">Av. Los olvidados</span></div>
-                                <div class="col-md-2"><span class="head">Estado</span><br><span class="text-de">Activo</span></div>
-                                
+                                <div class="col-2 codigo"><span class="head">Código</span><br><span class="text-de">{{ $cliente->cod }}</span></div>
+                                <div class="col-2 pl-0"><span class="head">Nombre</span><br><span class="text-de">{{ $cliente->nombre }}</span></div>
+                                <div class="col-2 pl-0"><span class="head">DNI/RUC</span><br><span class="text-de">{{ $cliente->dni }}</span></div>
+                                <div class="col-4 pl-0 direccion"><span class="head">Dirección</span><br><span class="text-de">{{ $cliente->direccion }}</span></div>
+                                <div class="col-2 pl-0 estado"><span class="head">Estado</span><br><span class="text-de">Activo</span></div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -57,7 +98,7 @@
                 <div class="card cd-bg-detalle">
                     <div class="card-body">
                         <h4 class="card-title">Otros</h4>
-                        <hr style="background-color: aqua;">
+                        <hr>
 
                         <div class="container-fluid p-0">
                             <div class="row">
@@ -69,15 +110,15 @@
                                 <div class="col-md-8"><span class="head">Interés por Ret</span><br><span class="text-de">.00000</span></div>
                             </div><br>
                             <div class="row">
-                                <div class="col-md-4"><span class="head">Total Descuente</span><br><span class="text-de">.00000</span></div>
+                                <div class="col-md-4"><span class="head">Total Descuento</span><br><span class="text-de">.00000</span></div>
                                 <div class="col-md-8"><span class="head">Prioridad</span><br><span>-1</span class="text-de"></div>
                             </div><br>
                             <div class="row">
                                 <div class="col-md-4"><span class="head">Saldo Deudor</span><br><span class="text-de">.00</span></div>
-                                <div class="col-md-8"><span class="head">linea de Crédito</span><br><span class="text-de">.00000</span></div>
+                                <div class="col-md-8"><span class="head">Línea de Crédito</span><br><span class="text-de">.00000</span></div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4"><span class="head">usuario</span><br><span class="text-de">Manager</span></div>
+                                <div class="col-md-4"><span class="head">Usuario</span><br><span class="text-de">Manager</span></div>
                             </div>
                             
                         </div>
@@ -89,41 +130,60 @@
 
         
     </div>
-    <div class="col-md-4 mt-2">
+    <div class="col-md-4 mt-2 mb-4">
         <div class="card cd-bg-detalle">
             <div class="card-body">
                 <div class="card-title">
                     <h4>Contacto</h4>
-                    <hr style="background-color: aqua;">
                 </div>
                 <hr>
                 <div class="container-fluid p-0">
-                    <table>
-                        <tr>
+                    <table class="table">
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Teléfono 1">
+                            <td class="icon"><span class="material-icons">call</span></td>
+                            <td>056-229595</td>
+                        </tr>
+                        
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Teléfono 2">
+                            <td class="icon"><span class="material-icons">call</span></td>
+                            <td></td>
+                        </tr>
+                        
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Celular">
                             <td class="icon"><span class="material-icons">smartphone</span></td>
                             <td>977917819</td>
                         </tr>
-                        <tr>
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Fax">
+                            <td class="icon"><span class="material-icons">print</span></td>
+                            <td></td>
+                        </tr>
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Email">
                             <td class="icon"><span class="material-icons">email</span></td>
                             <td>clever.coer09@gmail.com</td>
                         </tr>
-                        <tr>
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Contacto">
                             <td class="icon"><span class="material-icons">person</span></td>
                             <td>CleyMi</td>
                         </tr>
-                        <tr>
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Sition Web">
                             <td class="icon"><span class="material-icons">language</span></td>
                             <td>cleymisoft.com</td>
                         </tr>
-                        <tr>
-                            <td class="icon"><span class="material-icons">cached</span></td>
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Creado">
+                            <td class="icon"><span class="material-icons">add</span></td>
                             <td>02/02/2000</td>
                         </tr>
-                        
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Actualizado">
+                            <td class="icon"><span class="material-icons">cached</span></td>
+                            <td>02/02/2012</td>
+                        </tr>
+                        <tr data-toggle="tooltip" data-placement="top" data-title="Usuario">
+                            <td class="icon"><span class="material-icons">account_box</span></td>
+                            <td>Manager</td>
+                        </tr>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    
 </div>
