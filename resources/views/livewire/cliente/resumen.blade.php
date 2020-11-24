@@ -89,6 +89,17 @@
                                 <div class="col-4 pl-0 direccion"><span class="head">Dirección</span><br><span class="text-de">{{ $cliente->direccion }}</span></div>
                                 <div class="col-2 pl-0 estado"><span class="head">Estado</span><br><span class="text-de">Activo</span></div>
                             </div>
+                            <div class="row">
+                                <div class="col-2 codigo">
+                                    <span class="head">Código</span><br><span class="text-de">ICA</span>
+                                </div>
+                                <div class="col-2 pl-0">
+                                    <span class="head">Código</span><br><span class="text-de">ICA</span>
+                                </div>
+                                <div class="col-2 pl-0">
+                                    <span class="head">Código</span><br><span class="text-de">ICA</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

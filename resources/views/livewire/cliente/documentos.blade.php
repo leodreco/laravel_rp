@@ -5,6 +5,7 @@
         <div class="table-responsive">
             <table class="table table-hover table-bordered table-striped" style="width:100%" >
                 <thead>
+                    <tr><th colspan="19" class="text-center text-primary">DETALLE COMPRAS DE CLIENTE 123123123123 - DERRAMA MAGISTERIAL </th></tr>
                     <tr>
                         <th>#</th>
                         <th>TIPO</th>

@@ -99,6 +99,7 @@
     }
     
 </style>
+@livewireStyles
 @endsection
 
 @section('breadcrumb')
@@ -584,107 +585,13 @@
     </div>
 </div>
 
-<!--Modal Detalle-->
+<!--Modal detalle-document-->
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal detalle documento" aria-hidden="true" id="modal_detalle_documento">
     <div class="modal-dialog modal-dialog-centered modal-full">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Detalle Documento: 56251208</h3>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="total">#</th>
-                                        <th>Código</th>
-                                        <th>Nombre</th>
-                                        <th>Unid</th>
-                                        <th>Cant x Pack</th>
-                                        <th>Cant</th>
-                                        <th>Precio</th>
-                                        <th>Subtotal (67.25)</th>
-                                        <th>Descuento (0.00)</th>
-                                        <th>Impuesto (12.11)</th>
-                                        <th>Total linea (79.35)</th>
-                                        <th>Promoción</th>
-                                        <th><<</th>
-                                        <th>>></th>
-                                        <th>Almacén</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="button-cell" data-toggle="modal" data-target="#modal_maestro_articulos">
-                                            NES005903
-                                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
-                                        </td>
-                                        <td>Helado Chocochips 5Lt.</td>
-                                        <td>PQT</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>22.4164</td>
-                                        <td>22.42</td>
-                                        <td>0.0000</td>
-                                        <td>4.04</td>
-                                        <td>26.45</td>
-                                        <td>0</td>
-                                        <td>Ped</td>
-                                        <td></td>
-                                        <td>05AYPR!</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="button-cell" data-toggle="modal" data-target="#modal_maestro_articulos">
-                                            NES005913
-                                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
-                                        </td>
-                                        <td>Helado Tricolor 5Lt.</td>
-                                        <td>PQT</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>22.4164</td>
-                                        <td>22.42</td>
-                                        <td>0.0000</td>
-                                        <td>4.04</td>
-                                        <td>26.45</td>
-                                        <td>0</td>
-                                        <td>Ped</td>
-                                        <td></td>
-                                        <td>05AYPR!</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td class="button-cell" data-toggle="modal" data-target="#modal_maestro_articulos">
-                                            NES005914
-                                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
-                                        </td>
-                                        <td>Helado Vainilla 5Lt.</td>
-                                        <td>PQT</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>22.4164</td>
-                                        <td>22.42</td>
-                                        <td>0.0000</td>
-                                        <td>4.04</td>
-                                        <td>26.45</td>
-                                        <td>0</td>
-                                        <td>Ped</td>
-                                        <td></td>
-                                        <td>05AYPR!</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <livewire:modal.detalle-documento />
     </div>
 </div>
+
 
 <!--Modal maestro articulos-->
 <div class="modal fade" tabindex="-1" role="dialog" id="modal_maestro_articulos">
@@ -692,39 +599,45 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Maestro de articulos</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
+                            <div class="table-responsive">
+                                
+                            
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td class="total">#</td>
-                                        <td>Tipo</td>
-                                        <td>Código</td>
-                                        <td>Nombre</td>
-                                        <td>Inac.</td>
-                                        <td>Compra</td>
-                                        <td>Venta</td>
-                                        <td>Movil</td>
-                                        <td>Cod del fabricante</td>
-                                        <td>Grupo</td>
-                                        <td>Disponible</td>
-                                        <td data-toggle="tooltip" data-title="Precio Unitario">Prec.U</td>
-                                        <td>Precip.P</td>
-                                        <td>Percep?</td>
-                                        <td>Min Percep</td>
-                                        <td>% Percep</td>
-                                        <td>Detract?</td>
-                                        <td>Min Detract</td>
-                                        <td>% Detract</td>
-                                        <td>Inventario</td>
-                                        <td>Categoria</td>
-                                        <td>Familia</td>
-                                        <td>Marca</td>
-                                        <td>Línea</td>
-                                        <td>++</td>
+                                        <th class="total">#</th>
+                                        <th>Tipo</th>
+                                        <th>Código</th>
+                                        <th>Nombre</th>
+                                        <th>Inac.</th>
+                                        <th>Compra</th>
+                                        <th>Venta</th>
+                                        <th>Movil</th>
+                                        <th>Cod del fabricante</th>
+                                        <th>Grupo</th>
+                                        <th>Disponible</th>
+                                        <th data-toggle="tooltip" data-title="Precio Unitario">Prec.U</th>
+                                        <th>Precip.P</th>
+                                        <th>Percep?</th>
+                                        <th>Min Percep</th>
+                                        <th>% Percep</th>
+                                        <th>Detract?</th>
+                                        <th>Min Detract</th>
+                                        <th>% Detract</th>
+                                        <th>Inventario</th>
+                                        <th>Categoria</th>
+                                        <th>Familia</th>
+                                        <th>Marca</th>
+                                        <th>Línea</th>
+                                        <th>++</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -773,6 +686,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -848,4 +762,5 @@
     });
 </script>
 
+@livewireScripts
 @endsection

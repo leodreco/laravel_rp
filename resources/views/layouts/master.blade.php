@@ -31,6 +31,7 @@
         
         @include('layouts.scripts')
         @yield('js')
+        @stack('custom-js')
     </body>
 
 </html>
