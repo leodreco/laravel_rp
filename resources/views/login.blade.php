@@ -23,7 +23,7 @@
                             <input class="input--style-3" type="email" placeholder="Correo" name="email">
                         </div>
                         <div class="p-t-10">
-                            <a href="/" class="btn btn--pill btn--green" style="text-decoration: none;">Ingresar</a>
+                            <a href="/dashboard" class="btn btn--pill btn--green" style="text-decoration: none;">Ingresar</a>
                         </div>
                     </form>
                 </div>

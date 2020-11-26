@@ -117,15 +117,20 @@
 @endsection
 
 @section('breadcrumb')
+
+<!--<ol class="breadcrumb" id="breadcrumb">-->
+<!--    <li class="breadcrumb-item"><a href="/">Operaciones</a></li>-->
+<!--    <li class="breadcrumb-item"><a href="#">Cliente</a></li>-->
+<!--</ol>-->
 <h3>Buscar Cliente</h3>
-<ol class="breadcrumb" id="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Operaciones</a></li>
-    <li class="breadcrumb-item"><a href="#">Cliente</a></li>
-</ol>
+<div class="breadcrumb" id="breadcrumb">
+    <a class="breadcrumb__step" href="#">Operaciones</a>
+    <a class="breadcrumb__step breadcrumb__step--active" href="#">Cliente</a>
+</div>
 @endsection
 
 @section('content')
-<div class="row mb-4" id="filtros">
+<div class="row mb-4 d-none" id="filtros">
     <div class="col-12">
         <div class="card">
             <div class="card-header p-2" data-toggle="collapse" data-target="#filtros-collapse">Filtros<button class="btn btn-primary p-1"><i class="material-icons">expand_more</i></button></div>
@@ -234,7 +239,7 @@
 
 <div class="row" id="busqueda_cliente">
     <div class="col-12">
-        <table id="buscar-cliente" class="table table table-striped table-hover dt-responsive nowrap display" border="1"  rules="none" style="border:solid 1px #e3d2d2">
+        <table id="buscar-cliente" class="table table-striped table-hover dt-responsive nowrap display" border="1"  rules="none" style="border:solid 1px #e3d2d2">
             <thead>
                 <tr>
                     <th id="cantidad"><span>#</span><button class="btn btn-danger"><i class="material-icons">filter_list</i></button></th>
@@ -244,7 +249,7 @@
                     <th class="text-center">RUC / DNI</th>
                     <th class="text-center">Estado</th>
                     <th class="text-center">Tipo Negocio</th>
-                    <th class="text-center">Empleados</th>
+                    <th class="text-center px-0">Empleado</th>
                     <th class="text-center" data-priority="2">Acciones</th>
                 </tr>
             </thead>
@@ -389,6 +394,10 @@
                 }
             }
         }
+    });
+    
+    $('#buscar-cliente tbody').on( 'click','tr',function(e){
+        console.log(e.originalEvent.currentTarget.querySelector('a.btn-primary').click());
     });
 </script>
 {{--

@@ -97,6 +97,127 @@
     .close{
         font-size 18px !important;
     }
+    .titulo-mapa{
+        font-size: 18px;
+        color:black;
+    }
+    
+    .titulo-mapa b{
+        font-weight:bold;
+        font-size: 18px;
+    }
+    
+
+.container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-width: 480px;
+  padding: 0 40px;
+}
+
+.breadcrumbx {
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    height: 57px;
+    z-index: 1;
+    background-color: #17abab;
+    font-size: 12px;
+}
+
+.breadcrumbx a {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  text-decoration: none;
+  margin: auto;
+  height: 100%;
+  padding-left: 38px;
+  padding-right: 0;
+  color: white;
+  cursor:default;
+}
+
+.breadcrumbx a:first-child {
+  padding-left: 15.2px;
+}
+
+.breadcrumbx a:last-child {
+  padding-right: 15.2px;
+}
+
+.breadcrumbx a:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 57px;
+  height: 57px;
+  top: 0;
+  right: -28.1481481481px;
+  background-color: #17abab;
+  border-top-right-radius: 5px;
+  -webkit-transform: scale(0.707) rotate(45deg);
+          transform: scale(0.707) rotate(45deg);
+  box-shadow: 1px -1px rgb(255 255 255);
+    z-index: 1;
+}
+
+.breadcrumbx a:last-child:after {
+  content: none;
+}
+
+.breadcrumb__inner {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: auto;
+  z-index: 2;
+}
+
+.breadcrumb__title {
+  font-weight: bold;
+}
+
+
+@media all and (max-width: 1000px) {
+  .breadcrumbx {
+    font-size: 12px;
+  }
+}
+@media all and (max-width: 710px) {
+  .breadcrumb__desc {
+    display: none;
+  }
+
+  .breadcrumbx {
+    height: 38px;
+  }
+
+  .breadcrumbx a {
+    padding-left: 25.3333333333px;
+  }
+
+  .breadcrumbx a:after {
+    content: "";
+    width: 38px;
+    height: 38px;
+    right: -19px;
+    -webkit-transform: scale(0.707) rotate(45deg);
+            transform: scale(0.707) rotate(45deg);
+  }
+}
+
     
 </style>
 @livewireStyles
@@ -104,11 +225,12 @@
 
 @section('breadcrumb')
 <h3>{{ $cliente->nombre}}</h3>
-<ol class="breadcrumb" id="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Operaciones</a></li>
-    <li class="breadcrumb-item"><a href="/operaciones/cliente">Cliente</a></li>
-    <li class="breadcrumb-item active"><a href="#">{{ $cliente->nombre }}</a></li>
-</ol>
+<div class="breadcrumb" id="breadcrumb">
+    <a class="breadcrumb__step" href="#">Operaciones</a>
+    <a class="breadcrumb__step" href="/operaciones/cliente">Cliente</a>
+    <a class="breadcrumb__step" href="#">{{ $cliente->nombre }}</a>
+    <a class="breadcrumb__step breadcrumb__step--active tab" href="#">Resumen</a>
+</div>
 @endsection
 
 @section('content')
@@ -188,7 +310,6 @@
 @endsection
 
 @section('modals')
-
 <!-- MODAL RESUMEN > Nombre -->
 <div class="modal fade" id="info-general-nombre" tabindex="-1" role="dialog" aria-labelledby="info-general-nombre-Title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
@@ -343,18 +464,55 @@
     <div class="modal-dialog modal-full modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mapa : <span> </span> | Cliente : {{ $cliente->cod }} </h5>
+                
+            	<div class="breadcrumbx">
+            		<a href="#">
+            			<span class="breadcrumb__inner">
+            				<span class="breadcrumb__title">Mapa</span>
+            				<span class="breadcrumb__desc">Av. Melodic 539</span>
+            			</span>
+            		</a>
+            		<a href="#">
+            			<span class="breadcrumb__inner">
+            				<span class="breadcrumb__title">Cliente</span>
+            				<span class="breadcrumb__desc">{{ $cliente->cod }}</span>
+            			</span>
+            		</a>
+            		<a href="#">
+            			<span class="breadcrumb__inner">
+            				<span class="breadcrumb__title">Domi</span>
+            				<span class="breadcrumb__desc">001</span>
+            			</span>
+            		</a>
+            		<a href="#">
+            			<span class="breadcrumb__inner">
+            				<span class="breadcrumb__title">Dirección</span>
+            				<span class="breadcrumb__desc">Nro. Sn Balneario Hacachina (Hacachina) Ica Ica Ica</span>
+            			</span>
+            		</a>
+            		<a href="#">
+            			<span class="breadcrumb__inner">
+            				<span class="breadcrumb__title">Provincia</span>
+            				<span class="breadcrumb__desc">Ica</span>
+            			</span>
+            		</a>
+            		<a href="#">
+            			<span class="breadcrumb__inner">
+            				<span class="breadcrumb__title">Distrito</span>
+            				<span class="breadcrumb__desc">Ica</span>
+            			</span>
+            		</a>
+            	</div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">X</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-8"><iframe></iframe></div>
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         
-                        <div class="card cd-bg-detalle">
-                            <div class="card-body">
+                        <!--<div class="card cd-bg-detalle">-->
+                        <!--    <div class="card-body">-->
                                 
                                 <nav>
                                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -364,191 +522,184 @@
                                 </nav>
                                 
                                 <div class="tab-content" id="nav-tabContent">
-                                  <div class="tab-pane fade show active" id="nav-direcciones" role="tabpanel" aria-labelledby="nav-direcciones-tab">
-                              
-                                    <table class="table table-hover table-bordered table-striped">
-                                          <tr>
-                                              <th>#</th>
-                                              <th>Domi</th>
-                                              <th>Dirección</th>
-                                              <th>Provincia</th>
-                                              <th>Distrito</th>
-                                          </tr>
-                                          <tr>
-                                              <td>1</td>
-                                              <td>001</td>
-                                              <td>Nro. Sn Balneario Hacachina (Hacachina) Ica Ica Ica</td>
-                                              <td>Ica</td>
-                                              <td>Ica</td>
-                                          </tr>
-                                     </table>
+                                      <div class="tab-pane fade show active" id="nav-direcciones" role="tabpanel" aria-labelledby="nav-direcciones-tab">
+                                          
+                                          <iframe></iframe>
+                                          
+                                      </div>
                                       
-                                  </div>
                                      <div class="tab-pane fade" id="nav-edit-direcciones" role="tabpanel" aria-labelledby="nav-edit-direcciones-tab">
-                                        <h5>Localidad: </h5>
+                                         
+                                         <div class="row">
+                                             <div class="col-md-6">
+                                                 
+                                                 <h5>Localidad: </h5>
                                         
-                                            <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Tipo</div>
+                                                    <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Tipo</div>
+                                                            </div>
+                                                            <select class="custom-select mr-sm">
+                                                                <option value="" selected>Ciudad</option>
+                                                                <option value="">Ciudad</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Zona</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="Ica" style="background:white !important">
+                                                        </div>
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Distrito</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="Ica" style="background:white !important">
+                                                        </div>
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Provincia</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="Ica" style="background:white !important">
+                                                        </div>
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Depto</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="Ica" style="background:white !important">
+                                                        </div>
                                                     </div>
-                                                    <select class="custom-select mr-sm">
-                                                        <option value="" selected>Ciudad</option>
-                                                        <option value="">Ciudad</option>
-                                                    </select>
-                                                </div>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Zona</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="Ica" style="background:white !important">
-                                                </div>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Distrito</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="Ica" style="background:white !important">
-                                                </div>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Provincia</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="Ica" style="background:white !important">
-                                                </div>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Depto</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="Ica" style="background:white !important">
-                                                </div>
-                                            </div>
-                                            
-                                        <h5>Vía: </h5>
-                                        
-                                            <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend rs-w">
-                                                      <div class="input-group-text">Tipo</div>
                                                     
-                                                        <select class='mi-selector ' name='marcas'>
-                                                            <option value='' selected disable>Seleccione una opción</option>
-                                                            <option value=''>Opcion A</option>
-                                                            <option value=''>Opcion B</option>
-                                                            <option value=''>Opcion C</option>
-                                                            <option value=''>Opcion D</option>
-                                                        </select>
+                                                <h5>Vía: </h5>
+                                                
+                                                    <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend rs-w">
+                                                              <div class="input-group-text">Tipo</div>
+                                                            
+                                                                <select class='mi-selector ' name='marcas'>
+                                                                    <option value='' selected disable>Seleccione una opción</option>
+                                                                    <option value=''>Opcion A</option>
+                                                                    <option value=''>Opcion B</option>
+                                                                    <option value=''>Opcion C</option>
+                                                                    <option value=''>Opcion D</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Nombre</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="Ica" style="background:white !important">
+                                                        </div>
+                                                        
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Núm.</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Cdr.</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="0" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Mz.</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Lt.</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Km.</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="0" style="background:white !important">
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                 
+                                             </div>
+                                             <div class="col-md-6">
+                                                 
+                                                 <h5>Grupo: </h5>
+                                        
+                                                    <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend rs-w">
+                                                              <div class="input-group-text">Tipo</div>
+                                                            
+                                                                <select class='mi-selector ' name='marcas'>
+                                                                    <option value='' selected disable>Seleccione una opción</option>
+                                                                    <option value=''>Opcion A</option>
+                                                                    <option value=''>Opcion B</option>
+                                                                    <option value=''>Opcion C</option>
+                                                                    <option value=''>Opcion D</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Nombre</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="Ica" style="background:white !important">
+                                                        </div>
+                                                        
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Bloq.</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Piso</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="0" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Int</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Tienda</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                            
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Pto</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                        </div>
+                                                        
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Sector</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                        </div>
+                                                        
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">Etapa</div>
+                                                            </div>
+                                                            <input type="text" class="form-control"  value="" style="background:white !important">
+                                                        </div>
+                                                    </div>
+                                                    
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
-                                                      <div class="input-group-text">Nombre</div>
+                                                      <div class="input-group-text">Referencia</div>
                                                     </div>
-                                                    <input type="text" class="form-control"  value="Ica" style="background:white !important">
+                                                    <input type="text" class="form-control"  value="Nro. Sn Balneario Huacachina (Huacachina) Ica Ica Ica" style="background:white !important">
                                                 </div>
                                                 
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Núm.</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Cdr.</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="0" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Mz.</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Lt.</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Km.</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="0" style="background:white !important">
-                                                </div>
-                                            </div>
-                                            
-                                        <h5>Grupo: </h5>
+                                                <h5>Polígono: </h5>
                                         
-                                            <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend rs-w">
-                                                      <div class="input-group-text">Tipo</div>
-                                                    
-                                                        <select class='mi-selector ' name='marcas'>
-                                                            <option value='' selected disable>Seleccione una opción</option>
-                                                            <option value=''>Opcion A</option>
-                                                            <option value=''>Opcion B</option>
-                                                            <option value=''>Opcion C</option>
-                                                            <option value=''>Opcion D</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Nombre</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="Ica" style="background:white !important">
-                                                </div>
-                                                
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Bloq.</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Piso</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="0" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Int</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Tienda</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                    
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Pto</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                </div>
-                                                
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Sector</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                </div>
-                                                
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text">Etapa</div>
-                                                    </div>
-                                                    <input type="text" class="form-control"  value="" style="background:white !important">
-                                                </div>
-                                            </div>
-                                            
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                              <div class="input-group-text">Referencia</div>
-                                            </div>
-                                            <input type="text" class="form-control"  value="Nro. Sn Balneario Huacachina (Huacachina) Ica Ica Ica" style="background:white !important">
-                                        </div>
-                                        
-                                        <h5>Polígono: </h5>
-                                        
-                                            <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
+                                                <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
                                                       <div class="input-group-text">Helados</div>
@@ -569,14 +720,20 @@
                                                 </div>
                                                 
                                             </div>
-                                            
-                                            <button type="submit" class="btn btn-success" style="width:100%" > Guardar Cambios </button>
+                                                 
+                                             </div>
+                                         </div>
+                                        
+                                        <div class="boton text-center">
+                                            <button type="submit" class="btn btn-success text-center" style="width:50%" > Guardar Cambios </button>    
+                                        </div>    
+                                        
                                         
                                     </div>
                                 </div>
                                 
-                            </div>
-                        </div>
+                        <!--    </div>-->
+                        <!--</div>-->
                         
                     </div>
                 </div>
@@ -596,109 +753,15 @@
 <!--Modal maestro articulos-->
 <div class="modal fade" tabindex="-1" role="dialog" id="modal_maestro_articulos">
     <div class="modal-dialog modal-dialog-centered modal-full">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Maestro de articulos</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">X</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="table-responsive">
-                                
-                            
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="total">#</th>
-                                        <th>Tipo</th>
-                                        <th>Código</th>
-                                        <th>Nombre</th>
-                                        <th>Inac.</th>
-                                        <th>Compra</th>
-                                        <th>Venta</th>
-                                        <th>Movil</th>
-                                        <th>Cod del fabricante</th>
-                                        <th>Grupo</th>
-                                        <th>Disponible</th>
-                                        <th data-toggle="tooltip" data-title="Precio Unitario">Prec.U</th>
-                                        <th>Precip.P</th>
-                                        <th>Percep?</th>
-                                        <th>Min Percep</th>
-                                        <th>% Percep</th>
-                                        <th>Detract?</th>
-                                        <th>Min Detract</th>
-                                        <th>% Detract</th>
-                                        <th>Inventario</th>
-                                        <th>Categoria</th>
-                                        <th>Familia</th>
-                                        <th>Marca</th>
-                                        <th>Línea</th>
-                                        <th>++</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>I</td>
-                                        <td class="button-cell">
-                                            XNES005903
-                                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
-                                        </td>
-                                        <td>Helado Chocochips 5Lt.</td>
-                                        <td>N</td>
-                                        <td class="button-cell">
-                                            SI
-                                            <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
-                                        </td>
-                                        <td class="button-cell">
-                                            NO
-                                            <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
-                                        </td>
-                                        <td></td>
-                                        <td class="button-cell">
-                                            NES005903
-                                            <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
-                                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
-                                        </td>
-                                        <td class="button-cell">
-                                            Helados
-                                            <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
-                                        </td>
-                                        <td>0</td>
-                                        <td>0.00</td>
-                                        <td>0.00</td>
-                                        <td class="button-cell">NO<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell">0.00<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell">0.00<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell">NO<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell">0.00<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell">0.00<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell">NO<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell"><button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell"><button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell">Donofrio<button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td class="button-cell"><button class="btn btn-warning edit"><i class="material-icons">edit</i></button></td>
-                                        <td>NO</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <livewire:modal.maestro-articulos />
     </div>
 </div>
 @endsection
 
 @section('templates')
 <template id="breadcrumb-item">
-    <li class="breadcrumb-item active tab"><a href=""></a></li>
+    
+    <a class="breadcrumb__step breadcrumb__step--active tab" href="#"></a>
 </template>
 @endsection
 
@@ -725,7 +788,7 @@
         window.location.hash = e.currentTarget.getAttribute('href');
     }
     
-    if(window.location.hash != ''){
+    if(window.location.hash != '' && window.location.hash != '#resumen'){
         tabs.querySelector(window.location.hash+ '-tab').click();
     }
 </script>

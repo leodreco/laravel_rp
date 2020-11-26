@@ -37,11 +37,13 @@ Route::get('/operaciones/cliente/data', function (Request $request) {
     $output = new Symfony\Component\Console\Output\ConsoleOutput();
     
     $search = null;
+    
     if(isset($request['columns'][1]['search']['value'])){
         $codigo = $request['columns'][1]['search']['value'];
         $output->writeln('cod:'.$codigo); // Código
         $search = Cliente::where('cod', 'LIKE', '%'.$codigo);
     }
+    
     if(isset($request['columns'][2]['search']['value'])){
         $nombre = $request['columns'][2]['search']['value'];
         $output->writeln('nombre:'.$nombre); // Nombre
@@ -89,6 +91,7 @@ Route::get('/operaciones/cliente/data', function (Request $request) {
         }
         
     }
+
     if(isset($request['columns'][6]['search']['value'])){
         $empleados = json_decode($request['columns'][6]['search']['value']);
         if($empleados->min){
@@ -131,4 +134,8 @@ Route::get('/operaciones/cliente/data', function (Request $request) {
         'recordsFiltered' => $recordsFiltered,
         'data' => $clientes
     ]);
+});
+
+Route::get('/datos-maestros/socio', function(){
+    return view('datos-maestros.socio.search');
 });

@@ -6,32 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
     @include('layouts.head')
+    
     @yield('css')
+    @stack('custom-css')
+    
 </head>
 <body>
-        <div class="wrapper">
-            @include('layouts.sidebar')
-            <div id="content">
-                @include('layouts.navbar')
-                <div class="container-fluid pb-4">
-                    <div class="row">
-                        <div class="col-12">
-                            <nav aria-label="breadcrumb">
-                                @yield('breadcrumb')
-                            </nav>
-                        </div>
+    <div class="wrapper">
+        @include('layouts.sidebar')
+        <div id="content">
+            @include('layouts.navbar')
+            <div class="container-fluid pb-4">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            @yield('breadcrumb')
+                        </nav>
                     </div>
-                    @yield('content')
                 </div>
+                @yield('content')
             </div>
         </div>
+    </div>
         
-        @yield('modals')
-        @yield('templates')
-        
-        @include('layouts.scripts')
-        @yield('js')
-        @stack('custom-js')
-    </body>
-
+    @yield('modals')
+    @stack('modal')
+    
+    @yield('templates')
+    @stack('template')
+    
+    @include('layouts.scripts')
+    @yield('js')
+    @stack('custom-js')
+</body>
 </html>

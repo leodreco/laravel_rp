@@ -10,6 +10,24 @@
     #table-mesa tbody tr td:nth-child(3),#table-mesa tbody tr td:nth-child(9){
         cursor: pointer;
     }
+    
+    
+    #table-mesa.table tbody  td > .btn.show,
+    #table-mesa.table tbody  td > .btn.edit{
+        top: 0;
+        right: 0;
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        margin-top: 1px;
+        margin-right: 1px;
+        padding: 1px;
+    }
+    #table-mesa.table tbody  td > .btn.show i,
+    #table-mesa.table tbody  td > .btn.edit i{
+        font-size: 11px;
+    }
+    
 </style>
 <div class="row">
     <div class="col-12">
@@ -25,7 +43,13 @@
                     <th data-priority="1">Vendedor</th>
                     <th class="text-center">Día de visita</th>
                     <th class="text-center">Canal</th>
-                    <th class="text-center" data-priority="2">Activo</th>
+                    <th class="text-center" data-priority="2">
+                        Activo
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="activo_edit">
+                            <label class="custom-control-label" for="activo_edit"></label>
+                        </div>
+                    </th>
                     <th class="text-center">Frecuencia</th>
                     <th class="text-center">Almacen</th>
                 </tr>
@@ -43,8 +67,13 @@
                     <td>PINEDA ANGULO, OMAR RENZO</td>
                     <td class="text-center">MIERCOLES</td>
                     <td class="text-center">MINORISTA</td>
-                    <td class="text-center button-cell">NO
-                        <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
+                    <td class="text-center button-cell">
+                        <!--<span>NO</span>-->
+                        <!--<button class="btn btn-warning edit"><i class="material-icons">edit</i></button>-->
+                        <div class="custom-control custom-switch">
+                            <input disabled type="checkbox" class="custom-control-input" id="switch1">
+                            <label class="custom-control-label" for="switch1"></label>
+                        </div>
                     </td>
                     <td class="text-center">SEMANAL</td>
                     <td class="text-center">11CHPR1</td>
@@ -60,8 +89,13 @@
                     <td>PIÑEDA NUÑEZ, JOSE DE GUADALUPE</td>
                     <td class="text-center">MIERCOLES</td>
                     <td class="text-center">MINORISTA</td>
-                    <td class="text-center button-cell">NO
-                        <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
+                    <td class="text-center button-cell">
+                        <!--<span>NO</span>-->
+                        <!--<button class="btn btn-warning edit"><i class="material-icons">edit</i></button>-->
+                        <div class="custom-control custom-switch">
+                            <input disabled type="checkbox" class="custom-control-input" id="switch2">
+                            <label class="custom-control-label" for="switch2"></label>
+                        </div>
                     </td>
                     <td class="text-center">SEMANAL</td>
                     <td class="text-center">11ICPR1</td>
@@ -77,8 +111,13 @@
                     <td>AVALOZ MUNAYCO, LUIS ALBERTO</td>
                     <td class="text-center">MIERCOLES</td>
                     <td class="text-center">MINORISTA</td>
-                    <td class="text-center button-cell">NO
-                        <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
+                    <td class="text-center button-cell">
+                        <!--<span>NO</span>-->
+                        <!--<button class="btn btn-warning edit"><i class="material-icons">edit</i></button>-->
+                        <div class="custom-control custom-switch">
+                            <input disabled type="checkbox" class="custom-control-input" id="switch3">
+                            <label class="custom-control-label" for="switch3"></label>
+                        </div>
                     </td>
                     <td class="text-center">SEMANAL</td>
                     <td class="text-center">11CHPR1</td>
@@ -94,8 +133,13 @@
                     <td>PACHECO VELASQUEZ, MARIA DEL CAR</td>
                     <td class="text-center">MIERCOLES</td>
                     <td class="text-center">MINORISTA</td>
-                    <td class="text-center button-cell">NO
-                        <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
+                    <td class="text-center button-cell">
+                        <!--<span>NO</span>-->
+                        <!--<button class="btn btn-warning edit"><i class="material-icons">edit</i></button>-->
+                        <div class="custom-control custom-switch">
+                            <input disabled type="checkbox" class="custom-control-input" id="switch4">
+                            <label class="custom-control-label" for="switch4"></label>
+                        </div>
                     </td>
                     <td class="text-center">SEMANAL</td>
                     <td class="text-center">11CHPR1</td>
@@ -111,8 +155,13 @@
                     <td>ROJAS ASCONA, KRISTIAN ISAAC</td>
                     <td class="text-center">LUNES A SABADO</td>
                     <td class="text-center">MAYORISTA</td>
-                    <td class="text-center button-cell">NO
-                        <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
+                    <td class="text-center button-cell">
+                        <!--<span>NO</span>-->
+                        <!--<button class="btn btn-warning edit"><i class="material-icons">edit</i></button>-->
+                        <div class="custom-control custom-switch">
+                            <input disabled type="checkbox" class="custom-control-input" id="switch5">
+                            <label class="custom-control-label" for="switch5"></label>
+                        </div>
                     </td>
                     <td class="text-center">SEMANAL</td>
                     <td class="text-center">11CHPR1</td>
@@ -128,8 +177,13 @@
                     <td>MURGUIA PISCONTE, JUAN JOSE</td>
                     <td class="text-center">LUNES A SABADO</td>
                     <td class="text-center">MAYORISTA</td>
-                    <td class="text-center button-cell">NO
-                        <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
+                    <td class="text-center button-cell">
+                        <!--<span>NO</span>-->
+                        <!--<button class="btn btn-warning edit"><i class="material-icons">edit</i></button>-->
+                        <div class="custom-control custom-switch">
+                            <input disabled type="checkbox" class="custom-control-input" id="switch6">
+                            <label class="custom-control-label" for="switch6"></label>
+                        </div>
                     </td>
                     <td class="text-center">SEMANAL</td>
                     <td class="text-center">11CHPR1</td>
@@ -145,8 +199,13 @@
                     <td>SARAVIA DE LA CRUZ, SILVA MERCED</td>
                     <td class="text-center">LUNES A SABADO</td>
                     <td class="text-center">MAYORISTA</td>
-                    <td class="text-center button-cell">NO
-                        <button class="btn btn-warning edit"><i class="material-icons">edit</i></button>
+                    <td class="text-center button-cell">
+                        <!--<span>NO</span>-->
+                        <!--<button class="btn btn-warning edit"><i class="material-icons">edit</i></button>-->
+                        <div class="custom-control custom-switch">
+                            <input disabled type="checkbox" class="custom-control-input" id="switch7">
+                            <label class="custom-control-label" for="switch7"></label>
+                        </div>
                     </td>
                     <td class="text-center">SEMANAL</td>
                     <td class="text-center">11CHPR1</td>
@@ -156,3 +215,25 @@
         </div>
     </div>
 </div>
+
+@push('custom-js')
+<script>
+    (() =>{
+        const input_mesa_edit = document.querySelectorAll('#table-mesa tbody > tr input[type=checkbox]');
+        // for(let input of input_mesa_edit){
+        //     input.addEventListener('change', e => {
+        //       if(e.currentTarget.checked){
+        //           e.currentTarget.closest('td').querySelector('span').textContent = 'SI';
+        //       }else{
+        //           e.currentTarget.closest('td').querySelector('span').textContent = 'NO';
+        //       }
+        //     });
+        // }
+        document.querySelector('#activo_edit').addEventListener('change', e => {
+            for(let input of input_mesa_edit){
+                input.disabled = !e.currentTarget.checked;
+            }
+        });
+    })();
+</script>
+@endpush

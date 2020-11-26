@@ -1,0 +1,68 @@
+/*DataTable*/
+.dataTable.table{
+    width: 100% !important;
+}
+.dataTable.table thead th:first-child{
+    position: relative;
+}
+.dataTable.table thead .btnFilter{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    padding: 1px;
+    z-index: 100;
+}
+
+.dataTable.table thead .btnFilter i{
+    font-size: 15px;
+}
+
+.dataTable.table tbody .rowFilter input,
+.dataTable.table tbody .rowFilter select{
+    width: 100%;
+}
+
+.table tbody tr td.button-cell{
+    position: relative;
+    cursor: pointer;
+}
+.table .filtros input{
+    width: 100%;
+}
+
+
+.btn.show i,
+.btn.edit i{
+    font-size: inherit;
+}
+
+.table tbody  td > .btn.show,
+.table tbody  td > .btn.edit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    padding: 1px;
+    font-size: 15px;
+}
+/*DataTable responsive*/
+.dataTable.table tr.child li.button-cell{
+    position: relative;
+    cursor: pointer !important;
+}
+.dataTable.table tr.child li:hover{
+    background: #e7e7e7;
+}
+.dataTable.table tr.child li.button-cell .btn.show,
+.dataTable.table tr.child li.button-cell .btn.edit{
+    position: relative;
+    top: 0;
+    right: unset;
+    height: 20px;
+    width: 20px;
+    padding: 1px;
+    font-size: 15px;
+}

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-12">
         <div class="table-responsive">
-            <table class="table table-hover table-bordered table-striped" style="width:100%" >
+            <table class="table table-hover table-bordered table-striped" style="width:100%" id="table_pedidos">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -112,3 +112,14 @@
         </div>
     </div>
 </div>
+
+@push('custom-js')
+<script>
+$('#table_pedidos').DataTable({
+    responsive: true,
+    dom: 't',
+    paging: false,
+    ordering: false
+});
+</script>
+@endpush

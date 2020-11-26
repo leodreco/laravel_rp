@@ -93,12 +93,18 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     font-size: 1.1em;
     display: block;
     color: white !important;
     text-decoration: none;
 }
+
+#sidebar ul.submenu a{
+    font-size: 1em;
+}
+
+
 #sidebar ul li a:hover {
     color: rgb(255, 255, 255);
     background: rgb(120, 186, 248);
@@ -309,4 +315,8 @@ thead input {
         margin-left: 0;
         transform: none;
     }
+}
+
+ul.submenu{
+    padding-left: 20px;
 }
