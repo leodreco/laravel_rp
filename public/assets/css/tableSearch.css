@@ -64,6 +64,10 @@
     font-size: 15px;
 }
 /*DataTable responsive*/
+.dataTable.table tr.child span.dtr-data{
+    white-space: break-spaces;
+}
+
 .dataTable.table tr.child li.button-cell{
     position: relative;
     cursor: pointer !important;

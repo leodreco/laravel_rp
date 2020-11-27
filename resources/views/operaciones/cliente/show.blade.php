@@ -79,7 +79,7 @@
     }
     #modal_mapa iframe{
         width: 100%;
-        height: 780px;
+        height: 45rem;
         border-radius:5px;
         border:none;
         -webkit-box-shadow: 0px 0px 13px -5px rgba(31,31,31,1);
@@ -91,7 +91,7 @@
         padding-bottom: 0;
     }
     .modal-full {
-        min-width: 98%;
+        min-width: 75%;
         margin-left: 80;
     }
     .close{
@@ -106,7 +106,42 @@
         font-weight:bold;
         font-size: 18px;
     }
+    .input-modifi{
+        color:white;
+        background-color: #17abab;
+        width:7rem;
+    }
+    .btn-modal-save{
+        background-color: #17abab;
+        border: none;
+        height: 33px;
+        border-radius: 4px;
+        color: white;
+        width: 11rem; 
+    }
+    .btn-modal-save:hover{
+        background-color: #117878;
+    }
+    .btn-modal-cancel{
+        background-color: #ff366a;
+        border: none;
+        height: 33px;
+        border-radius: 4px;
+        color: white;
+        width: 11rem;
+    }
+    .btn-modal-cancel:hover{
+        background-color:#c42b52;
+    }
     
+    .input-group-text{
+        background-color: #17abab;
+        color:white;
+    }
+    .nav-tabs .nav-link{
+        color:#00a0a0 ;
+        font-weight:500;
+    }
 
 .container {
   display: -webkit-box;
@@ -538,7 +573,7 @@
                                                     <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Tipo</div>
+                                                              <div class="input-group-text input-modifi">Tipo</div>
                                                             </div>
                                                             <select class="custom-select mr-sm">
                                                                 <option value="" selected>Ciudad</option>
@@ -547,25 +582,25 @@
                                                         </div>
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Zona</div>
+                                                              <div class="input-group-text input-modifi">Zona</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="Ica" style="background:white !important">
                                                         </div>
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Distrito</div>
+                                                              <div class="input-group-text input-modifi">Distrito</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="Ica" style="background:white !important">
                                                         </div>
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Provincia</div>
+                                                              <div class="input-group-text input-modifi">Provincia</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="Ica" style="background:white !important">
                                                         </div>
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Depto</div>
+                                                              <div class="input-group-text input-modifi">Depto</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="Ica" style="background:white !important">
                                                         </div>
@@ -576,7 +611,7 @@
                                                     <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend rs-w">
-                                                              <div class="input-group-text">Tipo</div>
+                                                              <div class="input-group-text input-modifi">Tipo</div>
                                                             
                                                                 <select class='mi-selector ' name='marcas'>
                                                                     <option value='' selected disable>Seleccione una opción</option>
@@ -589,7 +624,7 @@
                                                         </div>
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Nombre</div>
+                                                              <div class="input-group-text input-modifi">Nombre</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="Ica" style="background:white !important">
                                                         </div>
@@ -630,7 +665,7 @@
                                                     <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend rs-w">
-                                                              <div class="input-group-text">Tipo</div>
+                                                              <div class="input-group-text input-modifi">Tipo</div>
                                                             
                                                                 <select class='mi-selector ' name='marcas'>
                                                                     <option value='' selected disable>Seleccione una opción</option>
@@ -643,7 +678,7 @@
                                                         </div>
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Nombre</div>
+                                                              <div class="input-group-text input-modifi">Nombre</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="Ica" style="background:white !important">
                                                         </div>
@@ -677,14 +712,14 @@
                                                         
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Sector</div>
+                                                              <div class="input-group-text input-modifi">Sector</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="" style="background:white !important">
                                                         </div>
                                                         
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
-                                                              <div class="input-group-text">Etapa</div>
+                                                              <div class="input-group-text input-modifi">Etapa</div>
                                                             </div>
                                                             <input type="text" class="form-control"  value="" style="background:white !important">
                                                         </div>
@@ -692,7 +727,7 @@
                                                     
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
-                                                      <div class="input-group-text">Referencia</div>
+                                                      <div class="input-group-text input-modifi">Referencia</div>
                                                     </div>
                                                     <input type="text" class="form-control"  value="Nro. Sn Balneario Huacachina (Huacachina) Ica Ica Ica" style="background:white !important">
                                                 </div>
@@ -702,7 +737,7 @@
                                                 <div class="card pt-3 pr-3 pl-3 pb-2 mb-2">
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
-                                                      <div class="input-group-text">Helados</div>
+                                                      <div class="input-group-text input-modifi">Helados</div>
                                                     </div>
                                                     <select class="custom-select mr-sm" disabled>
                                                         <option value="" selected>Huacachina -D</option>
@@ -711,7 +746,7 @@
                                                 </div>
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
-                                                      <div class="input-group-text">Tradicional</div>
+                                                      <div class="input-group-text input-modifi">Tradicional</div>
                                                     </div>
                                                     <select class="custom-select mr-sm" disabled>
                                                         <option value="" selected>Ica 17T</option>
@@ -724,8 +759,9 @@
                                              </div>
                                          </div>
                                         
-                                        <div class="boton text-center">
-                                            <button type="submit" class="btn btn-success text-center" style="width:50%" > Guardar Cambios </button>    
+                                        <div class="boton text-right">
+                                            <button type="button" class="btn-modal-cancel" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn-modal-save text-center"> Guardar Cambios </button>    
                                         </div>    
                                         
                                         

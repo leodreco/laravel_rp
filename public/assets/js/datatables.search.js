@@ -223,7 +223,6 @@ function initDataTable(id, options = {}){
             }
             table.draw();
         }
-    
     });
     
     return table;

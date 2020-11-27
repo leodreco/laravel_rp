@@ -390,7 +390,6 @@
                     input.focus();
                     input.selectionStart = input.value.length;
                     input.selectionEnd = input.value.length;
-                    // input.value = input.value;
                 }
             }
         }

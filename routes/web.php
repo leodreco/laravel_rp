@@ -139,3 +139,7 @@ Route::get('/operaciones/cliente/data', function (Request $request) {
 Route::get('/datos-maestros/socio', function(){
     return view('datos-maestros.socio.search');
 });
+
+Route::get('/datos-maestros/socio/{id_socio}', function(){
+    return view('datos-maestros.socio.show');
+});

@@ -64,10 +64,17 @@
         margin-top: 0;
         transform: translate(0px, -33px);
         font-weight: bold;
-        color: #007bff;
+        color: #19afaf;
     }
     hr{
-        background-color: #007bff75;
+        background-color: #19afaf;
+    }
+    table tbody td span{
+        color:#19afaf !important;
+    }
+    .nav-tabs .nav-item{
+        color:#00a0a0 ;
+        font-weight:500;
     }
     
 </style>

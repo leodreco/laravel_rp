@@ -3,7 +3,7 @@
 @section('title', 'Datos Maestros - Socio de Negocio')
 
 @section('css')
-<!--<link rel="stylesheet" href="{{ URL::asset('assets/css/tableSearch.css') }}">-->
+
 @endsection
 
 @section('breadcrumb')
@@ -17,7 +17,7 @@
 @section('content')
 <div class="row" id="busqueda-socio">
     <div class="col-12">
-        <table class="table table-hover table-striped table-hover table-bordered display nowrap" id="table_busqueda_socio">
+        <table class="table table-hover table-striped table-hover table-bordered" id="table_busqueda_socio">
             <thead>
                 <tr>
                     <th class="count">#</th>
@@ -96,12 +96,7 @@
 </div>
 @endsection
 
-@push('template')
-
-@endpush
-
 @section('js')
-<script src="{{ URL::asset('assets/js/datatables.search.js') }}"></script>
 <script>
     const table_search = initDataTable('#table_busqueda_socio', {
         dataTable: {

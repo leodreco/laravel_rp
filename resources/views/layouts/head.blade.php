@@ -8,8 +8,12 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<link rel="stylesheet" href="{{ URL::asset('assets/css/tableSearch.css')}}">
 
+<!-- Select2 -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
 
 <link rel="stylesheet" href="{{ URL::asset('assets/css/newBreadcrumb.css') }}">
+<!-- Morris.js -->
+<!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">-->
