@@ -13,15 +13,29 @@
     width: 20px;
     padding: 1px;
     z-index: 100;
+    border: 1px solid black;
 }
 
 .dataTable.table thead .btnFilter i{
     font-size: 15px;
 }
 
+.dataTable.table tbody .rowFilter td{
+    padding: 5px;
+}
+
 .dataTable.table tbody .rowFilter input,
 .dataTable.table tbody .rowFilter select{
     width: 100%;
+}
+
+.dataTable.table tbody .rowFilter .clearFilter{
+    height: 30px;
+    width: 30px;
+    padding: 4px;
+    font-size: 20px;
+    border: 1px solid black;
+    float: right;
 }
 
 .table tbody tr td.button-cell{
@@ -34,7 +48,8 @@
 
 
 .btn.show i,
-.btn.edit i{
+.btn.edit i,
+.clearFilter i{
     font-size: inherit;
 }
 
@@ -65,4 +80,14 @@
     width: 20px;
     padding: 1px;
     font-size: 15px;
+}
+
+@media(min-width: 768px){
+    .dataTables_wrapper .dataTables_length{
+        display: flex;
+        height: 100%;
+    }
+    .dataTables_wrapper .dataTables_length label{
+        margin: auto 0;
+    }
 }
