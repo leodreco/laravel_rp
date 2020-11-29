@@ -25,6 +25,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Page</a>
                 </li>
+                        
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="toggleFullScreen"><i class="material-icons">fullscreen</i></a>
+                </li>
             </ul>
         </div>
         

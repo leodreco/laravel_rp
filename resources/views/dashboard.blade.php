@@ -32,6 +32,11 @@
         text-decoration:none;
     }
     
+    .cd-st-g{
+        box-shadow: 0 0 10px 0 rgba(183,192,206,.2);
+        border: 1px solid rgba(238,238,238,.75);
+    }
+    
     .progress{
         background-color: rgba(0, 0, 0, 0.05);
         border-radius: .25rem;
@@ -57,66 +62,8 @@
 @endsection
 
 @section('content')
-<!--<div class="row">-->
-<!--    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 dashboard-card">-->
-<!--        <a href="/operaciones/cliente">-->
-<!--            <div class="card bg-primary text-white">-->
-<!--                <div class="card-body">-->
-<!--                    <div class="mb-2">-->
-<!--                        <i class="material-icons">store_mall_directory</i>-->
-<!--                        Clientes Totales: 50000-->
-<!--                    </div>-->
-<!--                    <div class="pt-2">-->
-<!--                        Ir-->
-<!--                        <div class="float-right">-->
-<!--                            <i class="material-icons">arrow_forward</i>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </a>-->
-<!--    </div>-->
-    
-<!--    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 dashboard-card">-->
-<!--        <a href="#">-->
-<!--            <div class="card bg-info text-white">-->
-<!--                <div class="card-body">-->
-<!--                    <div class="mb-2">-->
-<!--                        <i class="material-icons">local_shipping</i>-->
-<!--                        Pedidos pendientes: 45-->
-<!--                    </div>-->
-<!--                    <div class="pt-2">-->
-<!--                        Ir-->
-<!--                        <div class="float-right">-->
-<!--                            <i class="material-icons">arrow_forward</i>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </a>-->
-<!--    </div>-->
-    
-<!--    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 dashboard-card">-->
-<!--        <a href="#">-->
-<!--            <div class="card bg-success text-white">-->
-<!--                <div class="card-body">-->
-<!--                    <div class="mb-2">-->
-<!--                        <i class="material-icons">add_road</i>-->
-<!--                        Entregas en proceso: 4-->
-<!--                    </div>-->
-<!--                    <div class="pt-2">-->
-<!--                        Ir-->
-<!--                        <div class="float-right">-->
-<!--                            <i class="material-icons">arrow_forward</i>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </a>-->
-<!--    </div>-->
-<!--</div>-->
 <div class="row mt-3">
-   <div class="col-12 col-lg-6 col-xl-3 cd-st mb-3">
+   <div class="col-md-12 col-lg-6 col-xl-3 cd-st mb-3">
       <a href="/operaciones/cliente">
          <div class="card gradient-deepblue">
            <div class="card-body">
@@ -129,7 +76,7 @@
          </div>
       </a>
    </div>
-   <div class="col-12 col-lg-6 col-xl-3 cd-st mb-3">
+   <div class="col-md-12 col-lg-6 col-xl-3 cd-st mb-3">
        <a href="/operaciones/cliente">
          <div class="card gradient-orange">
            <div class="card-body">
@@ -142,7 +89,7 @@
          </div>
       </a>
    </div>
-   <div class="col-12 col-lg-6 col-xl-3 cd-st mb-3">
+   <div class="col-md-12 col-lg-6 col-xl-3 cd-st mb-3">
        <a href="/operaciones/cliente">
          <div class="card gradient-ohhappiness">
             <div class="card-body">
@@ -155,7 +102,7 @@
          </div>
        </a>
    </div>
-   <div class="col-12 col-lg-6 col-xl-3 cd-st mb-3">
+   <div class="col-md-12 col-lg-6 col-xl-3 cd-st mb-3">
        <a href="/operaciones/cliente">
          <div class="card gradient-ibiza">
             <div class="card-body">
@@ -171,14 +118,52 @@
 </div>
 
 <div class="row mt-3">
-    <div class="col-12 col-lg-6 col-xl-3 cd-st col-sm-offset-3 text-center">
-        <div class="card">
+    
+    <div class="col-md-4 col-lg-4 col-xl-4 mb-3 text-center">
+        <div class="card cd-st-g">
             <div class="card-body">
                 <label class="label label-success">Pie Chart</label>
                 <div id="pie-chart" ></div>
             </div>
         </div>
     </div>
+    
+    <div class="col-md-4 col-lg-4 col-xl-4 mb-3 text-center">
+        <div class="card cd-st-g">
+            <div class="card-body">
+                <label class="label label-success">Line Chart</label>
+                <div id="line-chart"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 col-lg-4 col-xl-4 mb-3 text-center">
+        <div class="card cd-st-g ">
+            <div class="card-body">
+                <label class="label label-success">Bar Chart</label>
+                <div id="bar-chart" ></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-6 col-xl-6 mb-3 text-center">
+        <div class="card  cd-st-g">
+            <div class="card-body">
+                <label class="label label-success">Bar stacked</label>
+                <div id="stacked" ></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-6 col-xl-6 mb-3 text-center">
+        <div class="card cd-st-g">
+            <div class="card-body">
+                <label class="label label-success">Area Chart</label>
+                <div id="area-chart" ></div>
+            </div>
+        </div>
+    </div>
+    
 </div>
  
 
@@ -187,14 +172,58 @@
 
 @section('js')
     <script type="text/javascript">
-        Morris.Donut({
-          element: 'pie-chart',
-          data: [
-            {label: "Friends", value: 30, labelColor: 'yellow'},
-            {label: "Allies", value: 10, labelColor: '#00897B'},
-            {label: "Enemies", value: 40, labelColor: '#C0CA33'}
-          ],
-          resize: true,
-        });
+        var data = [
+      { y: '2014', a: 50, b: 90},
+      { y: '2015', a: 65,  b: 75},
+      { y: '2016', a: 50,  b: 50},
+      { y: '2017', a: 150,  b: 60},
+      { y: '2018', a: 80,  b: 100},
+      { y: '2019', a: 90,  b: 70},
+      { y: '2020', a: 100, b: 75},
+      { y: '2021', a: 115, b: 160},
+      { y: '2022', a: 120, b: 85},
+      { y: '2023', a: 145, b: 85},
+      { y: '2024', a: 160, b: 95}
+    ],
+    config = {
+        data: data,
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Total Income', 'Total Outcome'],
+        fillOpacity: 0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors:['#ffffff'],
+        pointStrokeColors: ['black'],
+        lineColors:['#19afaf','#F11B62']
+    };
+    config.element = 'area-chart';
+    Morris.Area(config);
+    config.element = 'line-chart';
+    Morris.Line(config);
+    config.element = 'bar-chart';
+    Morris.Bar(config);
+    config.element = 'stacked';
+    config.stacked = true;
+    Morris.Bar(config);
+    Morris.Donut({
+      element: 'pie-chart',
+      data: [
+        {label: "Friends", value: 30},
+        {label: "Allies", value: 15},
+        {label: "Enemies", value: 45},
+        {label: "Neutral", value: 10}
+      ],
+      resize:true,
+      backgroundColor: 'white',
+      labelColor: 'black',
+      colors: [
+        '#19afaf',
+        '#F11B62',
+        '#1EB589',
+        '#FC551D'
+        ],
+    });
     </script>
 @endsection

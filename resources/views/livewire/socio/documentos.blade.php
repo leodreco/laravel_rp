@@ -121,7 +121,7 @@
             >rt`,
             columnDefs: [
                 {className: 'text-center', width: "40px", targets: [1,7,8,9,14]},
-                {target: 13, width: '350px'}
+                {targets: 13, width: '500px'}
             ]
         },
         buttonsResponsive : [{index: 2, type: 'href', value: '.btn.show'}],

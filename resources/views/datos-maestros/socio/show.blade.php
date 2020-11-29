@@ -35,9 +35,13 @@
             <livewire:socio.documentos/>
         </div>
         
-        <div class="tab-pane fade" id="articulos" role="tabpanel" aria-labelledby="tab artículos"></div>
+        <div class="tab-pane fade" id="articulos" role="tabpanel" aria-labelledby="tab artículos">
+            <livewire:socio.articulos/>
+        </div>
         
-        <div class="tab-pane fade" id="facturas" role="tabpanel" aria-labelledby="tab facturas electrónicas"></div>
+        <div class="tab-pane fade" id="facturas" role="tabpanel" aria-labelledby="tab facturas electrónicas">
+            <livewire:socio.facturas/>
+        </div>
         
     </div>
 </div>

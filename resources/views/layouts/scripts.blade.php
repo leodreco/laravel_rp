@@ -18,7 +18,6 @@
 
 <!-- morris.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></scrihpt>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
 <script type="text/javascript">
@@ -28,4 +27,20 @@
             $('#sidebar').parent().toggleClass('active');
         });
     });
+    
+    (() => {
+        document.querySelector('#toggleFullScreen').addEventListener('click', toggleFullScreen);
+        
+        function toggleFullScreen(e){
+            e.preventDefault();
+            if(!document.fullscreen){
+                document.body.requestFullscreen();
+                e.currentTarget.querySelector('i').textContent = 'fullscreen_exit';
+            }else{
+                document.exitFullscreen();
+                e.currentTarget.querySelector('i').textContent = 'fullscreen';
+            }
+        }
+    })();
+    
 </script>

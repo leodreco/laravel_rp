@@ -143,3 +143,7 @@ Route::get('/datos-maestros/socio', function(){
 Route::get('/datos-maestros/socio/{id_socio}', function(){
     return view('datos-maestros.socio.show');
 });
+
+Route::get('/datos-maestros/giros-de-negocio', function(){
+    return view('datos-maestros.giros-de-negocio');
+});

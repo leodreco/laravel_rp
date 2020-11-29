@@ -25,7 +25,7 @@
                     <a href="/datos-maestros/socio">Buscar socio de negocio</a>
                 </li>
                 <li>
-                    <a href="#">Page 2</a>
+                    <a href="/datos-maestros/giros-de-negocio">Giros de negocio</a>
                 </li>
                 <li>
                     <a href="#">Page 3</a>
