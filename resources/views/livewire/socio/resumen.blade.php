@@ -85,27 +85,26 @@
     <div class="col-md-8">
 
         <div class="row">
-            <div class="col-12 mt-2">
+            <div class="col-md-12 mt-2">
                 <div class="card cd-bg-detalle">
                     <div class="card-body">
-                        <h4 class="card-title">Información general</h4> <span class="material-icons" id="ver" data-toggle="modal" data-target="#info-general-nombre" title="Ver detalle"> visibility </span>
+                        <h4 class="card-title">Información general</h4> <span class="material-icons" id="ver" data-toggle="modal" data-target="#info-general-socio" title="Ver detalle"> visibility </span>
                         <hr>
-                            
                         <div class="row">
                             
-                            <div class="col-2">
-                                <span class="head">Código</span><br><span class="text-de">{{ $cliente->cod }}</span>
+                            <div class="col-md-2">
+                                <span class="head">Código</span><br><span class="text-de">CA00000001</span>
                             </div>
-                            <div class="col-3">
-                                <span class="head">Nombre</span><br><span class="text-de">{{ $cliente->nombre }}</span>
+                            <div class="col-md-3">
+                                <span class="head">Nombre</span><br><span class="text-de">Berget Chiquia Tan</span>
                             </div>
-                            <div class="col-3">
-                                <span class="head">Nombre comercial</span><br><span class="text-de">{{ $cliente->nombre }}</span>
+                            <div class="col-md-3">
+                                <span class="head">Nombre comercial</span><br><span class="text-de">Berget Chiquia Tan</span>
                             </div>
-                            <div class="col-2">
-                                <span class="head">DNI/RUC</span><br><span class="text-de">{{ $cliente->dni }}</span>
+                            <div class="col-md-2">
+                                <span class="head">DNI/RUC</span><br><span class="text-de">54385601</span>
                             </div>
-                            <div class="col-2">
+                            <div class="col-md-2">
                                 <span class="head">Estado</span><br><span class="text-de">Activo</span>
                             </div>
                             
@@ -115,28 +114,25 @@
                 </div>
             </div>
             
-            <div class="col-12 mt-4">
+            <div class="col-md-12 mt-4">
                 <div class="card cd-bg-detalle">
                     <div class="card-body">
-                        <h4 class="card-title">Información general</h4>
+                        <h4 class="card-title">Direcciones</h4>
                         <hr>
-                        <div class="row">
-                            <div class="col-2">
-                                <span class="head">Departamento</span><br><span class="text-de">ICA</span>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <span class="head">Departamento</span><br><span class="text-de">ICA</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="head">Provincia</span><br><span class="text-de">ICA</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="head">Distrito</span><br><span class="text-de">ICA</span>
+                                    </div>
+                                <div class="col-md-4">
+                                    <span class="head">Dirección</span><br><span class="text-de">
+                                </span></div>
                             </div>
-                            <div class="col-2">
-                                <span class="head">Provincia</span><br><span class="text-de">ICA</span>
-                            </div>
-                            <div class="col-2">
-                                <span class="head">Distrito</span><br><span class="text-de">ICA</span>
-                            </div>
-                            <div class="col-2">
-                                <span class="head">Distrito</span><br><span class="text-de">ICA</span>
-                            </div>
-                            <div class="col-4">
-                                <span class="head">Dirección</span><br><span class="text-de">{{ $cliente->direccion }}</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -184,7 +180,7 @@
                     <h4>Contacto</h4>
                 </div>
                 <hr>
-                <!--<div class="container-fluid p-0">-->
+                <div class="container-fluid p-0">
                     <table class="table">
                         <tr data-toggle="tooltip" data-placement="top" data-title="Teléfono 1">
                             <td class="icon"><span class="material-icons">call</span></td>
@@ -229,7 +225,7 @@
                             <td>Manager</td>
                         </tr>
                     </table>
-                <!--</div>-->
+                </div>
             </div>
         </div>
     </div>

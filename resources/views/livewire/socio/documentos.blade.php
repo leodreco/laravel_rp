@@ -85,27 +85,6 @@
                     <td>Conta</td>
                     <td>2020-11-18</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>NC</td>
-                    <td class="button-cell">
-                        85225
-                        <button class="btn btn-primary show"><i class="material-icons">visibility</i></button>
-                    </td>
-                    <td>2020-11-18</td>
-                    <td>PM00000022</td>
-                    <td>KIMBE</td>
-                    <td>20100152941</td>
-                    <td>O</td>
-                    <td>C</td>
-                    <td>0.00</td>
-                    <td class="text-danger">-1871.06</td>
-                    <td class="text-danger">-1871.06</td>
-                    <td class="text-danger">-285.42</td>
-                    <td>TDC/F086-000000000148715</td>
-                    <td>Conta</td>
-                    <td>2020-11-18</td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -121,7 +100,7 @@
             >rt`,
             columnDefs: [
                 {className: 'text-center', width: "40px", targets: [1,7,8,9,14]},
-                {targets: 13, width: '500px'}
+                {targets: 13, width: '350px'}
             ]
         },
         buttonsResponsive : [{index: 2, type: 'href', value: '.btn.show'}],

@@ -12,7 +12,7 @@
     
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper active">
         @include('layouts.sidebar')
         <div id="content">
             @include('layouts.navbar')

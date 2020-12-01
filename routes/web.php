@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+
+use App\Http\Controllers\ArticuloController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+// Operaciones
 Route::get('/operaciones/cliente', function () {
     return view('operaciones.cliente');
 });
@@ -136,6 +139,7 @@ Route::get('/operaciones/cliente/data', function (Request $request) {
     ]);
 });
 
+// Datos maestros
 Route::get('/datos-maestros/socio', function(){
     return view('datos-maestros.socio.search');
 });
@@ -147,3 +151,14 @@ Route::get('/datos-maestros/socio/{id_socio}', function(){
 Route::get('/datos-maestros/giros-de-negocio', function(){
     return view('datos-maestros.giros-de-negocio');
 });
+
+Route::get('/datos-maestros/tipos-de-contribuyente', function(){
+    return view('datos-maestros.tipos-de-contribuyente');
+});
+
+// Informes
+Route::get('/informes/clientes-fuera-de-ruta', function(){
+    return view('informes.clientes-fuera-de-ruta');
+});
+
+Route::get('/articulo/operaciones/lista-blanca', [ArticuloController::class, 'lista_blanca']);

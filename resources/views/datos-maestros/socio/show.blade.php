@@ -29,8 +29,9 @@
     </ul>
     
     <div class="col-12 tab-content border-right border-left border-bottom pt-4">
-        <div class="tab-pane fade show active" id="resumen" role="tabpanel" aria-labelledby="tab resumen"></div>
-        
+        <div class="tab-pane fade show active" id="resumen" role="tabpanel" aria-labelledby="tab resumen">
+            <livewire:socio.resumen/>
+        </div>
         <div class="tab-pane fade" id="documentos" role="tabpanel" aria-labelledby="tab documentos">
             <livewire:socio.documentos/>
         </div>

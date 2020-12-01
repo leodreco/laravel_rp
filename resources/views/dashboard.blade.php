@@ -122,7 +122,7 @@
     <div class="col-md-4 col-lg-4 col-xl-4 mb-3 text-center">
         <div class="card cd-st-g">
             <div class="card-body">
-                <label class="label label-success">Pie Chart</label>
+                <label class="label label-success">Top 5 de % de categorías más compradas</label>
                 <div id="pie-chart" ></div>
             </div>
         </div>
@@ -131,7 +131,7 @@
     <div class="col-md-4 col-lg-4 col-xl-4 mb-3 text-center">
         <div class="card cd-st-g">
             <div class="card-body">
-                <label class="label label-success">Line Chart</label>
+                <label class="label label-success">Clientes Vs Tipos de Negocio</label>
                 <div id="line-chart"></div>
             </div>
         </div>
@@ -146,23 +146,45 @@
         </div>
     </div>
     
-    <div class="col-md-6 col-lg-6 col-xl-6 mb-3 text-center">
-        <div class="card  cd-st-g">
-            <div class="card-body">
-                <label class="label label-success">Bar stacked</label>
-                <div id="stacked" ></div>
+    <div class="col-md-5">
+        <div class="row">
+            
+            <div class="col-md-6 col-lg-6 col-xl-6 mb-3 text-center">
+                <div class="card  cd-st-g">
+                    <div class="card-body">
+                        <label class="label label-success">Bar stacked</label>
+                        <div id="stacked" ></div>
+                    </div>
+                </div>
             </div>
+            
+            <div class="col-md-6 col-lg-6 col-xl-6 mb-3 text-center">
+                <div class="card cd-st-g">
+                    <div class="card-body">
+                        <label class="label label-success">Area Chart</label>
+                        <div id="area-chart" ></div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
     
-    <div class="col-md-6 col-lg-6 col-xl-6 mb-3 text-center">
-        <div class="card cd-st-g">
-            <div class="card-body">
-                <label class="label label-success">Area Chart</label>
-                <div id="area-chart" ></div>
+    <div class="col-md-7">
+        <div class="row">
+            
+            <div class="col-md-12 col-lg-12 col-xl-12 mb-3 text-center">
+                <div class="card  cd-st-g">
+                    <div class="card-body">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61920.60976270542!2d-75.76178851644744!3d-14.074926928399371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9110e2c3cec74f3d%3A0x5ce1a2b590e67ecd!2sIca!5e0!3m2!1ses-419!2spe!4v1606754712246!5m2!1ses-419!2spe" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
+    
+    
     
 </div>
  
@@ -189,7 +211,7 @@
         data: data,
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['Total Income', 'Total Outcome'],
+        labels: ['Ingresos', 'Salidas'],
         fillOpacity: 0.6,
         hideHover: 'auto',
         behaveLikeLine: true,
@@ -210,10 +232,11 @@
     Morris.Donut({
       element: 'pie-chart',
       data: [
-        {label: "Friends", value: 30},
-        {label: "Allies", value: 15},
-        {label: "Enemies", value: 45},
-        {label: "Neutral", value: 10}
+        {label: "Lácteos", value: 30},
+        {label: "Carne", value: 15},
+        {label: "Verdura", value: 45},
+        {label: "Frutas", value: 10},
+        {label: "Bebidas", value: 20}
       ],
       resize:true,
       backgroundColor: 'white',
@@ -221,9 +244,12 @@
       colors: [
         '#19afaf',
         '#F11B62',
-        '#1EB589',
-        '#FC551D'
+        '#2D92FE',
+        '#FC551D',
+        '#A527D1'
         ],
     });
+    
+    
     </script>
 @endsection
