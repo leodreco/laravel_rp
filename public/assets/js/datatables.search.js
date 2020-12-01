@@ -7,7 +7,10 @@ function initDataTable(id, options = {}){
     };
     
     let defaultDataTable = {
-        dom: 'lprt',
+        dom: `<"row"
+            <"col-12 col-md-4"l>
+            <"col-12 col-md-8"p>
+        >rt`,
         language: {
             url: 'https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json'
         },
@@ -101,8 +104,20 @@ function initDataTable(id, options = {}){
             let row = document.createElement('tr');
             row.classList.add('rowFilter');
             let filtros = [];
+            
             for(let obj of options.filtro){
-                filtros[obj.index] = obj;
+                if(typeof obj.index == 'number'){
+                    filtros[obj.index] = obj;    
+                }else if(typeof obj.index == 'object'
+                    && typeof obj.index[Symbol.iterator] == 'function') {
+                    // Si es un array
+                    for(let i of obj.index){
+                        let o = obj;
+                        o.index = i;
+                        filtros[i] = o;
+                    }
+                }
+                
             }
             
             let hiddenCols = table.columns().responsiveHidden();
