@@ -18,6 +18,7 @@ use App\Http\Controllers\ArticuloController;
 
 Route::get('/', function () {
     return view('login');
+    // return view('welcome');
 });
 
 
@@ -161,4 +162,7 @@ Route::get('/informes/clientes-fuera-de-ruta', function(){
     return view('informes.clientes-fuera-de-ruta');
 });
 
+// Articulos
 Route::get('/articulo/operaciones/lista-blanca', [ArticuloController::class, 'lista_blanca']);
+Route::get('/articulo/operaciones/promociones', [ArticuloController::class, 'promociones']);
+Route::get('/articulo/operaciones/carga-y-despacho', [ArticuloController::class, 'carga_y_despacho']);

@@ -102,12 +102,13 @@ a, a:hover, a:focus {
 
 #sidebar ul.submenu a{
     font-size: 1em;
+    padding-right: 10px;
 }
 
 
 #sidebar ul li a:hover {
-    color: rgb(255, 255, 255);
-    background: rgb(120, 186, 248);
+    color: rgb(255 255 255);
+    background: rgb(76 123 167);
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
@@ -278,10 +279,41 @@ thead input {
     position: fixed;
     /*transform: translateX(-250px);*/
     min-height: 100vh;
+    height: 100vh;
     overflow-y: auto;
     
     /*transition: all 0.6s;*/
 }
+
+/*Scrollbar*/
+/* width */
+#sidebar::-webkit-scrollbar {
+  width: 4px;
+  transition: all 0.3s;
+}
+
+#sidebar:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+#sidebar::-webkit-scrollbar-track {
+  background: #131b30;
+  padding: 5px;
+}
+
+/* Handle */
+#sidebar::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: grey;
+}
+
+/* Handle on hover */
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: grey;
+  
+}
+
 
 #sidebar.active {
     margin-left: unset;

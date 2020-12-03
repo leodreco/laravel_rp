@@ -28,7 +28,23 @@
         });
     });
     
+    
     (() => {
+        // Sidebar Toggles
+        for(let a of document.querySelectorAll('a[data-toggle=collapse]')){
+            a.addEventListener('click', e => {
+                
+                console.log(e.currentTarget.getAttribute('href'));
+                
+                let liParent = e.currentTarget.closest('ul.list-unstyled');
+                console.log(liParent);
+                // for(let ul of ulParent.querySelectorAll('ul.list-unstyled')){
+                //     console.log(ul);
+                // }
+            });
+        }
+        
+        // Fullsreen
         document.querySelector('#toggleFullScreen').addEventListener('click', toggleFullScreen);
         
         function toggleFullScreen(e){
